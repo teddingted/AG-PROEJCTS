@@ -1,0 +1,1066 @@
+ HYUNDAI INNOVATIVE ECONOMICAL RELIQUEFACTION  SYSTEM NITROGEN  
+ 
+ 
+ 
+ 
+ 
+OPERATION  AND CONTROL  PHILOSOPHY  FOR HI-ERS  Ⓝ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Caution  
+This document contains confidential proprietary information. Hence, the reproduction, transfer and/or 
+utilization in whole or in part are prohibited without the written permission of HD Korea Shipbuilding 
+& Offshore Engineering.  
+PROJECT  / IMO NO.  174K LNG Carrier  / 9976135  
+HULL NO.  / NAME  8196 / KOOL TIGER  
+SHIP OWNER  COOLCO  
+SHIP CLASSIFICATION  LR 
+DOCUMENT NO.  RL-KM60002 -A-03 Version  - 
+RESPONSIBLE PARTY  System Equipment  Research Department, SD Business Unit  
+Rev. Date Reason for Issue  Prepared  Checked  Approved  
+0 19 Dec. 2022  First Issued  LDH KJI JHM 
+1 29 Mar. 2023 Rev.1 Issued  KJI KJI JHM 
+2 20 Aug. 2024 Rev.2 Issued  KJI KJI JHM 
+- 27 Sep. 2024  Finished Plan  KJI KJI JHM 
+      
+      
+      
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ Revision Sheet  
+ 
+Rev. No.  Date Content  
+0 19 Dec. 2022 First Issued  
+1 29 Mar. 2023 [Update d] 
+- Page 3 2.2.2.1  / Page 4 2.2.2.3  / Page 6 3.2 / Page 7~9 3.3  
+  Page 9 3.4 / Page 10~11 3.4.1.5 ~ 3.4.1.7  
+2 20 Aug. 2024  Updated the value  and TBD items for system information  
+- 27 Sep. 2024  Finished Plan 
+   
+   
+   
+ 
+  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ TABLE OF CONTENT  
+ 
+1. INTRODUCT ION................................ ................................ ................................ ................................ .... 1 
+1.1 General  ................................ ................................ ................................ ................................ ...............  1 
+1.2 Related Document  ................................ ................................ ................................ ..............................  1 
+2. SYSTEM OVERVIEW  ................................ ................................ ................................ ..............................  2 
+2.1 General  ................................ ................................ ................................ ................................ ...............  2 
+2.2 Operation Mode  ................................ ................................ ................................ ................................ . 3 
+2.2.1 Operation Mode according to temperature of NBOG.  ................................ ................................ ..... 3 
+2.2.2 Operation Mode of Hi -ERSⓃ ................................ ................................ ................................ .............  3 
+2.2.2.1  Cooldown (with Start -up) ................................ ................................ ................................ ................  3 
+2.2.2.2  Idle ................................ ................................ ................................ ................................ ................  4 
+2.2.2.3  Normal  ................................ ................................ ................................ ................................ ...........  4 
+2.2.2.4  Stop ................................ ................................ ................................ ................................ ...............  4 
+3. PROCESS AND CONTROL  ................................ ................................ ................................ ....................  6 
+3.1 General  ................................ ................................ ................................ ................................ ...............  6 
+3.2 BOG Heat Exchanger ................................ ................................ ................................ ...........................  6 
+3.3 Load Control of Hi -ERSⓃ ................................ ................................ ................................ .....................  7 
+3.4 N2 Supply System  ................................ ................................ ................................ ...............................  9 
+3.4.1 Operation scenarios  ................................ ................................ ................................ ......................... 10 
+3.4.1.1  Initial N2 filling  ................................ ................................ ................................ .............................. 10 
+3.4.1.2  Supplying Seal Gas  ................................ ................................ ................................ ...................... 10 
+3.4.1.3  Decrease load of N2 loop  ................................ ................................ ................................ .............. 10 
+3.4.1.4  Maintain the amount of N2 in Hi -ERSⓃ ................................ ................................ .......................... 10 
+3.4.1 .5 N2 boosting compressor inlet pressure control  ................................ ................................ .............. 10 
+3.4.1.6  N2 buffer tank pressure control  ................................ ................................ ................................ .....11 
+3.4.1.7  N2 expansion vessel pressure control  ................................ ................................ ........................... 11 
+3.5 Compander differential pressure/flow control  ................................ ................................ ................... 11 
+3.5.1 For 1st compression stage  ................................ ................................ ................................ ............... 11 
+3.5.2 For 3rd compression stage  ................................ ................................ ................................ ............... 12 
+3.5.3 For 3rd compression stage  ................................ ................................ ................................ ............... 12 
+3.6 Compander warm loading control during start -up ................................ ................................ ............ 12 
+4. AUXILIARY AND SAFETY FUNCTION  ................................ ................................ ................................ ..13 
+4.1 General  ................................ ................................ ................................ ................................ .............. 13 
+4.2 Expander Outlet Temperature Protection Control ................................ ................................ .............. 13 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 4.3 Expander by -Pass control ................................ ................................ ................................ ................... 13 
+4.4 Anti-Surge Control for Compressor  ................................ ................................ ................................ ...13 
+4.4.1 Anti-Surge Controller of 1st compression stage  ................................ ................................ .............. 14 
+4.4.2 Anti-Surge Controller of 2nd compression stage  ................................ ................................ ............. 14 
+4.4.3 Anti-Surge Controller of 3rd compression stage  ................................ ................................ .............. 15 
+4.4.4 Anti-Surge Controller set point.  ................................ ................................ ................................ ......15 
+4.4.5 Anti-Surge Controller Override  ................................ ................................ ................................ ........ 15 
+4.5 Compander Load Limitation Controller  ................................ ................................ .............................. 15 
+4.6 N2 Heat Exchanger Temperature Change Rate Protection  ................................ ................................ .15 
+APPENDIX 1. SEQUENCES  ................................ ................................ ................................ ........................ 16 
+APPENDIX 2. OVERALL CONTROL LOGIC DIAGRAM  ................................ ................................ .............. 20 
+ 
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+ 
+ ABBREVIATIONS  
+ 
+Hi-ERSⓃ Hyundai Innovative - Economical Re -Liquefaction System - (Nitrogen)  
+LNG Liquefied Natural  Gas 
+LNGC Liquefied Natural Gas Carrier  
+BOG Boil-Off Gas  
+NBOG  Natural  Boil-Off Gas  
+FGSS Fuel Gas Supply System  
+LDC Low duty compressor  
+PCHE Printed Circuit Heat Exchanger  
+PFHE Plate Fin Heat Exchanger  
+Compander  Integrally Geared Compressor and Expander  
+IAS Integrated Automation System  
+GMS Gas Management System  
+PSD Process Shutdown  
+DFGE Dual Fuel Generator Engine  
+FDS Functional Design Specification  
+HP High Pressure  
+MP Middle Pressure  
+LP Low Pressure  
+SP Set Point  
+PV Process Variable  
+OP Controller Output  
+  
+  
+ 
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 1 - 
+   
+1. INTRODUCTIO N 
+1.1 General  
+This document describes the conceptual  operation  philosophy  for Hi -ERSⓃ re-liquefaction 
+system.  
+It can be changed at detail engineering  stage. 
+ 
+The detai l document for operation of Hi -ERSⓃ including control logic etc. will be provided 
+during the detail engineering  stage or separately with vendor drawings.  
+ 
+1.2 Related Document  
+ 
+Reference  Title 
+[1] RL-KM60001 -A-02 Technical Specification  
+[2] RL-KD00002 -I-00 PFD with Heat Mass Balance  
+[3] RL-KD00005-A-04 Piping and Instrumentation Diagram  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 2 - 
+ 2. SYSTEM OVERVIEW  
+2.1 General  
+The purpose of the Hi -ERSⓃ which is BOG re-liquefaction  system  is to maintain the cargo tank 
+pressure for  LNGC by re-liquefying  surplus  BOG calculated by GMS . 
+When the Hi -ERSⓃ is operated, the surplus BOG after supply to gas consumer including main 
+engine, DFGE and GCU by LDC is fully liquefied by reverse Brayton  cycle as sub -cooled condition 
+in Nitrogen Heat Exchanger and then returns to cargo tank.  
+The conceptual drawing of Hi -ERSⓃ is shown in Figure 1.  
+ 
+ 
+Figure 2-1. Conceptual Drawing for Hi -ERSⓃ with Ship’s GMS  
+ 
+  
+
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 3 - 
+ 2.2 Operation Mode  
+The automation control system will be provided to control the Hi -ERSⓃ and it will be integrated 
+into the ship IAS to control the tank pressure  efficiently . 
+The Hi-ERSⓃ is flexible system according to operation condition which are NBOG temperat ure 
+from cargo tank  and voyage condition . This document describ es the conceptual operation mode 
+of Hi-ERSⓃ according to NBOG temperature and describes the ope ration mode . 
+ 
+2.2.1  Operation Mode according to temperature of NBOG . 
+There are two  operation mode ; 
+A. Cold Heat Recovery Mode  
+B. Non-Cold Heat Recovery Mode  
+ 
+The detail function of this mode is described in 3.2.  
+ 
+2.2.2  Operation Mode of Hi-ERSⓃ 
+There are four operation mode of Hi-ERSⓃ; 
+A. Cooldown  (with Start -up) 
+B. Idle 
+C. Normal  
+D. Stop 
+ 
+2.2.2.1  Cooldown  (with Start -up) 
+The main purpose of cooldown operatio n for Hi -ERSⓃ is to protect the n itrogen heat exchanger 
+from thermal damage and to ensure the performance  of re-liquefaction system . Due to the 
+criteria of temperature change rate (about 1 ℃/min) for Plate Fin Type Heat E xchanger ( PFHE: 
+nitrogen heat exchanger), it takes about 4 hours for this operating case  called “1st Cooldown”  
+from 45 ℃ (ambient temperature) to -130 ℃ (cryogenic temperature)  at bottom of nitrogen 
+heat exchanger . 
+There are two steps of cooldown operation;  
+A. 1st cooldown operation: The temperature is cooled to -130℃ (adjustable) to meet the 
+condition  for Idle mode  without BOG suppl y. 
+B. 2nd cooldown operation: The temperature is reduced to -160℃ (adjustable) to meet 
+the condition for  Min. load operation  with BOG supply . The BOG is supplied with 
+minimum flow  (700 kg/h) of Hi-ERSⓃ. 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 4 - 
+  
+2.2.2.2  Idle 
+The main purpose of idle operation for Hi -ERSⓃ is to maintain cryogenic condition for reverse  
+Brayton  cycle (closed loop)  without BOG flow . During this mode, there is no heat exchange 
+between surplus BOG and N2 loop . The all generated cold energy is used to cool the warm 
+nitrogen. To minimize power consumption and generate  cold energy during idle  mode, the 
+compander is running with minimum l oad (minimum nitrogen mass flowrate and operating 
+pressure) . 
+ 
+2.2.2.3  Normal  
+The main purpose of normal operation for Hi -ERSⓃ is to control the cargo tank pressure directly.  
+The capacity of Hi -ERSⓃ is determined;  
+A. Tank Pressure Control mode  
+B. BOG Flow Control mode 
+ 
+When Tank Pressure Control mode is selected, the load of Hi -ERSⓃ is automatically controlled 
+by output from cargo tank pressure controller in GMS. When BOG Flow Control mode is selected, 
+the load of Hi -ERSⓃ is manually controlled by operator.  
+The load control  according to the required re -liquefaction capacity of Hi -ERSⓃ is performed by 
+adjusting the compressor suction pressure of compander . If it is required to increase the load of 
+Hi-ERSⓃ due to high cargo tank pressure , the control system increases the compressor suction 
+pressure of compander  by supply  nitrogen from nitrogen expansion vessel  to nitrogen loop. On 
+the other hand, if it is required to decrease the load of Hi -ERSⓃ due to l ow cargo tank  pressure , 
+the control system decreases the compressor suction pressure of compander  by return nitrogen 
+to nitrogen expansion vessel.  
+ 
+2.2.2.4  Stop 
+When compander stop is required, the pressure of N2 loop should be decreased to lower the 
+load firstly bef ore the stop. If the pressure of N2 expansion vessel is higher than compressor 
+discharge pressure, the N2 boosting compressor will be operated combination with 81XV0002 
+to decrease the load. While compander motor is stopped, the N2 seal gas will be supplie d to 
+each stage of N2 compander using the boosting compressor.  
+When the ESD of compander occurs, the pressure of N2 loop should be decreased as soon as 
+possible to minimize supplying seal gas consumption, and it will be decreased until 5 bara for 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 5 - 
+ re-start of N2 compander. N2 loop pressure will be firstly equalized with N2 expansion vessel by 
+opening 81PCV0003 and then 81PCV0005 will be opened for rapid depressurization (81PCV0003 
+Closed).  
+If compander re -start is required by operator’s judgement, c ompander should be re -started by 
+start-up sequence after N2 loop pressure depressurization to 5 bara. 
+  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 6 - 
+ 3. PROCESS AND CONTROL  
+3.1 General  
+The control function for appropriate  operation of  Hi-ERSⓃ is described in this section.  It can be 
+changed at detail design stage.  
+The detail control philosophy including specific set point of each co ntroller and operation 
+manual will be provid ed during the detail design  stage or separately with vendor drawings.  
+Overall control logic diagram is refer to Appendix 1.  
+ 
+3.2 BOG Heat Exchanger  
+The main purpose of BOG Heat Exchanger is to help the precooling of warm compressed 
+nitrogen  by cold energy of NBOG from cargo tank.  
+There are two operation mode accord ing to t emperature of NBOG . 
+A. Mode A: Cold Heat Recovery  
+B. Mode B: Non-Cold Heat Recovery (default ) 
+ 
+  
+ 
+TICTI
+BOG From 
+Cargo TankTo LD 
+Compressor
+81TCV000272XV0003 72XV000172XV0002
+-50CºBOG heat exchanger 
+temperature controllerBOG HEXMode A: Cold Heat Recovery Mode
+Mode B: Non-Cold Heat Recovery ModeSW
+From N2 
+Compander
+3rd stageTo N2 
+Expander Inlet81
+002LDC Suction 
+Temperature
+81TCV0003
+N2 HEX
+ 
+Figure 3-1. Schematic control diagram for BOG Heat Exchanger  
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 7 - 
+ When the re-liquefaction load is at full (>= 1,450 kg/h) and the temperature of NBOG is below 
+-80 ℃ during sea voyage, cold heat recovery mode can be activated.  Under  the other condition, 
+cold heat recovery mode shall not be activated . 
+If operator select s the cold heat recovery mode , 72XV0001 and 72XV0003 are fully opened. 
+Once the valves are fully opened, 72XV0002 is fully closed with interlock function.  
+Then, LDC inlet  temperature controller, 81TIC00 1, can be activated to control the inlet 
+temperature of LDC by adjusting 81TCV0002 and 81TCV0003. 81TIC00 1 output signal is used to 
+command the temperature control valves 81TCV0002 (0 ~ 50 % of the signal) and 81TCV0003 
+(50 ~ 100 % of the signal) by split range.  
+ 
+3.3 Load Control  of Hi-ERSⓃ 
+Re-liquefaction load of Hi-ERSⓃ is controlled in either “Tank pressure control” mode or “BOG 
+Flow control” mode. If tank pressure control mode is selected re -liquefaction load is automatically 
+controlled acco rding to output of tank pressure controller from  GMS as remote set point, SP GMS 
+(Max. Output 1,500 kg/h) . If BOG flow control mode is selected re-liquefaction load  is set by 
+operator in manual.  
+The GMS calculates the amount of BOG remaining after supply fuel to engines and the surplus 
+BOG is set to the maximum output limit of the tank pressure controller for Hi -ERSⓃ. 
+The output of tank pressure controller is sent to the re -liquefaction load controller  as remote 
+set point (SP GMS). The re -liquefaction load controller is provided to control the re-liquefaction 
+flow rate and load of N2 refrigerant loop. The re -liquefaction flow rate is controlled by BOG flow 
+controller  (71FIC001) , and load of N2 refrigerant loop is controlled by N2 compander suction 
+pressure controller  (81PIC003) . The pressure of the nitrogen loop is controlled to have the correct 
+mass flowrate of the compander corresponding to the correct cooling capacity of Hi -ERSⓃ
+. 
+The re -liquefaction load controller determines the set point of BOG flow controller as remote 
+set point (SP REL). When SP GMS is higher than SP REL, load increase of Hi -ERSⓃ is required. On the 
+contrary, when SP GMS is lower than SP REL, load decrease is required. The BOG flow rate should be 
+dependently controlled with the nitrogen refrigerant loop in order to maintain the temperature 
+of condensate  BOG (TC) within control range -156°C ~ -159°C. If the temperature of condensate  
+BOG (TC) is colder than control range (Level L)  at the given BOG flow rate, it means that the 
+nitrogen refrigerant  mass flow is too higher than required.  On the contrary, if the condensate  
+BOG temperature  (TC) is warmer than control range  (Level H) , it means that the nitrogen 
+refrigerant mass flow is insufficient. Therefore, nitrogen refrigerant  mass flow is manipulated 
+according to the BOG flow rate variation.  SPREL is changed by 50 kg/h at a time when one of 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 8 - 
+ load up or down conditions is true. Cyc le timer is started for 60 seconds  (adjustable by 
+administrator) since re -liquefaction load controller is activated. It is to prevent further load 
+change during the time. Cycle timer is used when TC is controlled between level L and H without 
+significant temperature change rate. When ‘Time to L or H’ is less than 5 minutes, Cycle timer is 
+ignored and load change is initiated immediately. And Stable timer is started for 90 second s 
+(adjustable by a dministrator). Cycle timer is start ed after Stable timer elapses.   
+ 
+Pre-set table is applied through heat and mass balance calculation for fast nitrogen flow control 
+according to the BOG load variation. It can be adjustable during commissioning.  
+ 
+Table 3-1. Pre-set Table  (adjustable by administrator)  
+71FIC001 SPREL 
+[kg/h]  81PIC003 SP  
+[bara] 
+700 3.2 
+800 3.6 
+900 4.0 
+1,000 4.5 
+1,100 5.0 
+1,200 5.5 
+1,300 6.0 
+1,400 6.4 
+1,500 6.8 
+ 
+And the re-liquefaction load controller compensates for the N2 loop cooling capacity by 
+stepwise increases or decreases in N2 compander suction pressure of 0.1 bar at a time to 
+maintain condensate BOG temperature (T C) within the operating range of -156°C ~ -159°C.  
+When the compensation is required in re -liquefaction load controller, the set point of N2 
+compander suction pressure controller is added ± 0.1 bar at a time to the pre -set table output.  
+N2 compander suction pressure controller 81PIC003 controls three valv es (81XV0002, 
+81PCV0003 and 81PCV0004) by split range. 81PCV0003 or 81XV0002 are used for decreasing 
+pressure (0 ~ 50 % of the signal) and 81PCV0004 is used for increasing pressure (50 ~ 100 % of 
+the signal).  
+While 81PIC003 is in auto mode, 81XV0002 must b e opened instead of 81PCV0003 when the 
+pressure of N2 expansion vessel is higher than the discharge pressure of compander 3rd stage. 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 9 - 
+ Then, N2 boosting compressor is operated to decrease the pressure of N2 compander suction 
+pressure.  
+ 
+3.4 N2 Supply System  
+The main purpose of the N2 supply system is to supply the nitrogen  to N2 expansion vessel 
+and to support the Hi -ERSⓃ operation.  
+The N2 supply  system is comprised  of; 
+A. N2 Boosting Compressor x 1 set 
+B. Filtration system x 1 set 
+C. N2 Dryer x 1 set 
+D. N2 Buffer Tank x 1 set 
+E. N2 Expansion Vessel x 1 set 
+ 
+The N2 supply  system will be operated  in below cases ; 
+A. Drying  
+B. Initial N2 filling  
+C. Supplying seal g as 
+D. Decrease load of N2 loop  
+E. Maintain the amount of N2 in Hi -ERSⓃ 
+ 
+ PI PICSeal GasN2 From 
+Ship's N2 
+buffer tank
+N2 
+buffer tank
+N2 Expansion 
+VesselN2 Boosting 
+CompressorN2 
+DryerPI PIC
+VentN2 boosting compressor 
+inlet pressure controller
+ 
+81XV0001 81PCV0001
+82PCV0001
+81PCV0004 81PCV0003
+81XV0002N2 buffer tank 
+pressure controller
+81PCV0002001281
+00018200181
+00281
+From N2 
+Compander
+3rd stageTo N2 
+Compander
+1st stagePIPIC
+00028200182
+ 
+Figure 3-2 Schematic Control Diagram for N2 Supply System  
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 10 - 
+ Case A and B are operated before starting of Hi -ERSⓃ with Case C operation. Case C is operated 
+during N2 compander start -up and stop. Case D is operated for normal operation and after N2 
+compander stop. Case E is operated during normal operation depend on leakage of seal gas.  
+ 
+3.4.1  Operation scenarios  
+3.4.1.1  Initial N2 filling  
+For the initial start -up, the N2 expansion vessel will be filled with N2 from ship’s N2 generator 
+through the N2 supply  system until  14 bara of N2 expansion vessel.  
+ 
+3.4.1.2  Supplying Seal Gas  
+N2 will be supplied to each stage of N2 compander as seal gas during start -up and N2 
+compander motor stop (including ready for start) . When the changeover  condition is satisfied, 
+seal gas supplying will be changed automatically from N2 supply system to  process side 
+(discharge of compressor 3rd stage).  
+ 
+3.4.1.3  Decrease l oad of N2 loop  
+If the pressure of N2 expansion vessel is higher than compressor discharge pressure during low 
+load of Hi -ERSⓃ operatio n, the N2 boosting compressor will be operated with 81XV0002 to 
+decrease the load  of N2 loop . 
+ 
+3.4.1.4  Maintain the amount of N2 in Hi -ERSⓃ 
+The amount N2 in system i s controlled by set point with 8.5 bara for N2 expansion vessel to 
+maintain the total amount of N2 in system of Hi -ERSⓃ due to the continuous leakage of supplied 
+seal gas (under 3 % of total seal gas amount) to atmosphere during Hi -ERSⓃ operation including 
+cooldown. On the other hand, the N2 bo osting compressor system will automatically stop when 
+the pressure of N2 expansion vessel is reached to 10 bara . If the pressure of N2 expansion vess el 
+is exceeded 31 bara , 82PCV0001 valve will be o pened.  
+ 
+3.4.1.5  N2 boosting compressor inlet pressure control  
+N2 is supplied to N2 boosting compressor from ship’s N2 generator and N2 loop. The supply 
+pressure from ship’s N2 generator and N2 loop is different. The inlet pressure of N2 boosting 
+compressor is controlled by pressure control valve 81PCV0001 at  3 bara.  
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 11 - 
+ 3.4.1.6  N2 buffer tank pressure control  
+The pressure of N2 buffer tank is controlled by pressure control valve 81PCV000 2. N2 buffer 
+tank pressure controller 81PIC0002 controls 81PCV0002 with different SP according to N2 
+supply system operation scenarios . 
+- Supplying seal gas (SP: 32 bara)  
+- Decrease load of N2 loop (SP: 30 bara)  
+- Maintain the amount of N2 in Hi -ERSⓃ (SP: 30 bara)  
+ 
+3.4.1.7  N2 expansion vessel pressure control  
+The pressure of N2 expansion vessel is controlled by pressu re control valve 82PCV0001 at 31  
+bara to protect N2 expansion tank.  
+ 
+3.5 Compander differential pressure/flow control  
+The N2 compander load is controlled by differential pressure/flow controller which controlling 
+the stages suction flowrate. The compander nominal reduced volume flowrate is used for 
+differential pressure/flow controller and it manipul ates the expander nozzles and expander by -
+pass valve with split range function.  
+ 
+3.5.1  For 1st compression stage  
+The internal load of compander is controlled by a differ ential pressure/flow controller which is 
+the first stage suction “flo wrate” when compander is at design  speed (ie during normal 
+operation).  
+The process value of controller  is corresponding to the compander nominal reduced volume 
+flowrate . It is also used for 1st com pression stage A/S controller . 
+The controller output is sent to the split range function. The output of thi s function adjusts 
+position of;  
+A. the expander nozzle between 0 and 100% for the 0 to 50% part of input signal . 
+B. the expander bypass valve between 0 and 100% for the 50 to 100% part of input signal . 
+The minimum opening p osition of expander is 5 % even if the controller output is lower than 
+5 %. 
+Expander nozzles 100% is the full opening of nozzles and corresponds to the physical 100% 
+opening.  Bypass valve is open only when expander nozzles are fully open to limit energy wasting.  
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 12 - 
+ 3.5.2  For 3rd compression stage  
+Compander is load controlled by its differential pressure/flow controller, controlling the third 
+stage suction flowrate when compander is not at high speed by acting on expander by -pass 
+valve opening (ie when comp ander is in start -up phase).  
+The process value of controller is corresponding to the compander nominal reduced volume 
+flowrate. It is also used for 3rd compression stage A/S controller.  The output signal is used to 
+adjust the expander by -pass valve. 
+ 
+3.5.3  For 3rd compression stage  
+When the compander is in warm start up, the load is controlled by its differential 
+pressure/flow controller, controlling the third stage suction flowrate by acting on the global 
+anti-surge valve opening (i e when compander is in start -up phase).  
+When compander is cold, the controller is taken over to the other controller for 3rd stage by 
+acting on expander by -pass valve opening.  
+The process value of controller is corresponding to the compander nominal reduce d volume 
+flowrate. It is also used for 3rd compression stage A/S controller.  
+The output signal is used to adjust the global anti -surge valve position.  
+ 
+3.6 Compander warm loading control during start -up 
+When the compander is in warm start up, the load is controlled by its differ ential pressure/flow 
+controller , controlling the third stage suction flowrate by acting on valve 51.FCV.10 opening (ie 
+when compander is in start -up phase). When compander is cold, 51.FRIC.41 is taking over.  
+✓ The PV is compander nominal reduced volume flowrate (51.FRI.3)  
+✓ The SP is 1.1 (decided by CS)  
+The OP is used to manipulate position of global A/S valve (51.FCV.10)  
+  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 13 - 
+ 4. AUXILIARY AND SAFETY FUNCTION  
+4.1 General  
+There are additional control concept s to ensure process safety  and performance . It can be 
+changed at detail design stage. The detail control philosophy will be provided during the detail 
+engineering stage or separately with vendor drawings.  
+ 
+4.2 Expander Outlet Temperature Protection Control  
+To prevent liquid formation by too low temperature at discharge of expander, temperature limit 
+controller will be provided. 71TIC0001  controls the expander inlet temperature with SP -130C 
+during normal operation and IDLE to NORMAL mode . When the temperatur e is lower than 
+setpoint, BOG flow is increased more  in order to prevent the N2 droplet.  
+ 
+4.3 Expander by -Pass control  
+The expander by -pass valve is operated in combination with expander nozzle to control the Hi -
+ERSⓃ by nominal reduced volume flowrate of 1st stage ( FRI1 PV) during normal operation.  
+To protect of nitrogen heat exchanger from ther mal damage by over 1 ℃/min of temperature 
+change ratio during cooldown  and warm -up, the concept of expander by -pass control will be 
+provided. When the ratio of temperature change exceeds the set point, the opening percent of 
+expander by -pass control valve will be adjust ed in combination with expander nozzle . 
+ 
+4.4 Anti-Surge Control for Comp ressor  
+There are four anti -surge control valve s; 
+A. Three for compressor each stage of compander  
+B. One for compressor of compander global anti -surge control from downstream of 3rd 
+stage to suction of 1st stage  
+ 
+During normal operation, t he compressor is only protected from surge by recycling gas in case 
+of too low flow  through  global  anti-surge control valves.  Surge points are programmed into the 
+controllers in order to generate a set point ΔPoCTL corresponding to minimum required flow of 
+each compression stage (the A/S controller set point cannot be modified by operators).  
+The A/S protection of each stage is based on the control principle described in below figure:  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 14 - 
+  
+Figure 4-1. General concept of Anti -Surge Control  
+ 
+4.4.1  Anti-Surge Controller of 1st compression stage  
+The controller SP is equal to a point defined by Maker. The process value of controller is 
+corresponding to the compander nominal reduced  volume flowrate. The output of the Anti -
+Surge controller is not sent directly to the global anti -surge valve. A sum function manipulates 
+the anti -surge valve, by adding all outputs to get correct opening from other controllers and 
+override. If the process  value is lower than set point, the safety line is reached and the solenoid 
+valve is de -energized in order to have a fast opening of the global anti -surge valve. In the same 
+time the anti -surge controller override is switched to 100%. Once the global anti -surge valve is 
+fully open, the solenoid valve is re -energized and the anti -surge controller override is ramped to 
+0% at a rate of 0.5%/s. when compander is stopped or not running the ramp down shall not be 
+done and anti -surge controller override shall be m aintained to 100%. If the safety line is still 
+reached 3 seconds after solenoid valve has been de -energized, the compander is tripped, and 
+the alarm “Anti -surge 1/2/3 safety trip” is generated. This alarm is only active when compander 
+is running (running f eedback active for 20 s). The safety limit trip function is inhibited when 
+compander is in Local mode to allow checking of surge parameters by Maker engineer (if 
+required). If the global anti -surge valve is open more than 2 % for more than 2 seconds during  
+normal operation and not during start up sequence, an alarm “Anti -surge valve open during 
+operation” is generated (as it is not a normal mode of operation).  
+ 
+4.4.2  Anti-Surge Controller of 2nd compression stage  
+Same principle as for anti-surge controller of 1st compression stage . 
+
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 15 - 
+  
+4.4.3  Anti-Surge Controller of 3rd compression stage  
+Same principle as for anti -surge controller of 1st compression stage . 
+ 
+4.4.4  Anti-Surge Controller set point . 
+The set points o f each stage controller are ; 
+A. 51XIC1 for 1st stage : 0.8  
+B. 51XIC2 for 2nd stage : 0.8  
+C. 51XIC3 for 3rd stage : 0.82  
+The one global anti -surge valve (51.FCV.10) is provided for the three compression stages during 
+normal operation. The opening value of global anti -surge valve is determined by adding the 
+surge controller OP values of each stage to secure the appropriate opening value.  
+ 
+4.4.5  Anti-Surge Controller Override  
+Global anti -surge valve can be operated ind ependently from the anti -surge controllers by using 
+the manual controller override . This function allows to open the global anti -surge valve more 
+than the anti -surge controllers would ask for, but the reverse is not possible. The output  of 
+override  is adde d to the anti -surge controllers output in a sum function.  For a 100% output 
+signal, the global anti -surge valve is full open.  
+The global anti -surge valve is fitted with Auto/Man function that can be switched in Man when 
+the compander is in local mode. If t he override  of the valve is in Man, the solenoid has to be 
+energized. This function is used to allow the tuning of the valve during maintenance.  
+When the compander is in remote mode, the function is automatically switched in Auto.  
+ 
+4.5 Compander Load Limitation Controller  
+In order to protect Compander motor from overloading, the co ntroller will limit the motor 
+current  by reduci ng the N2 inventory in the loop.  
+ 
+4.6 N2 Heat Exchanger Temp erature Change Rat e Protection  
+In order to prev ent to exceed temperature change rate of N2 heat exchanger during cooldown 
+and warm up, target set point of 51TIC021 is changed when the temperature change rate exceeds 
+55℃/h. Target set point is adjusted as current SP plus 10 ℃ during cooldown. Target set point is 
+adjusted as current SP minus 10 ℃ during warm up. The target set point will be returned to 
+original target value when the temperature change rate decrease to below ±52℃/h. 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 16 - 
+ APPENDIX 1. SEQUENCES  
+START (COOLDOWN)  
+Compander ready to start
+51HIC41B 0%
+51HY41B Input=0
+51TIC041 Man 0%
+51FRIC41 Man 50%
+51HIC41C 0%
+51HIC41A 100%
+51TIC021 Man 5%
+51IIC1 Man 0%
+51HIC1/2 100%
+51JIC3 Man 0%
+51XIC1/2/3 Man 0%
+51FRIC10 Man 100%
+72XV0004 OPEN
+71FIC0001 Man 0%
+71TIC0001 Man 0%
+81PIC0003 Man 50%
+51SCV1/2/3 Energize
+51FCV10 Energize
+51XIC1 Auto SP=0.80 
+51XIC2 Auto SP=0.80
+51XIC3 Auto SP=0.82
+51HIC10 0% 
+Enable timer T2 1 min51HIC41B 0%
+51HY41B Input=0
+51TIC041 Man 0%
+51FRIC41 Man 50%
+51HIC41C 0%
+51HIC41A 100%
+51TIC021 Man 5%
+51IIC1 Man 0%
+51HIC1/2 100%
+51JIC3 Man 0%
+51XIC1/2/3 Man 0%
+51FRIC10 Man 100%
+72XV0004 OPENED
+71FCV0001 CLOSED
+81PIC0003 Man 50%
+51SCV1/2/3 Energized
+51FCV10 Energized
+N2 Compander START
+51TIC041 Auto SP=1.0Full Speed Reached
+51TIC041 Auto SP=1.0
+51XIC1 Auto SP=0.80 
+51XIC2 Auto SP=0.80
+51XIC3 Auto SP=0.82
+51HIC10 0%
+51HIC1/2 0% (Ramp 1%/sec)
+81PIC0003 Auto SP=2 barg
+Enable timer T1B 100 sec51SCV1 & 2 < 5%
+81PIC0003 Auto SP=2 barg
+51FRIC10 Man 0% (Ramp 10%/min)
+51TIC041 Track 100% (Ramp 3%/min)
+Enable timer T0 4 min51FRIC10 Man 0% (Ramp 10%/min)
+51TIC041 Track 100% (Ramp 3%/min)
+51FRI1 < 1.19
+51FRIC10 Man 0% (Ramp 1.5%/min) 51FRIC10 Man 0% (Ramp 1.5%/min)
+51TIC021 Auto SP = PV
+51TIC021 SP -130℃ (Ramp 0.7℃/min)51TIC021 SP -130℃ (Ramp 0.7℃/min)
+51FRI1 < 1.0
+51FRIC41 Auto SP=1.051FRIC41 Auto SP=1.0
+81TE0006 <= -129℃
+End of SequenceACTION CONDITION FOR NEXT STEP
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 17 - 
+ IDLE TO NO RMAL  
+51TIC021 Man 100%
+Reliq. Load Controller Activation
+Enable timer 10 min
+End of SequenceIDLE MODE
+72XV0004 OPEN
+71FIC0001 Man 0%
+71TIC0001 Man 0%72XV0004 OPENED
+71FCV0001 CLOSED
+71PIT0001 >= 9 bar
+71FIC0001 Man 3%
+Enable timer 10 min71FIC0001 Man 3%
+71TE0001 <= -100°C
+51TIC021 SP=-140°C (Ramp 0.5°C/min)
+71TIC0001 Auto SP= -130°C81TE0006 < -139°C
+71TIC0001 Auto SP=-130°C
+Enable timer 10 min
+71FIC0001 Man 3.5% (Ramp ??%/min)71FIC0001 OP 3.5%
+51TIC021 SP=-150°C (Ramp 0.5°C/min)81TE0006 < -149°C
+Enable timer 10 min
+71FIC0001 Man 4% (Ramp ??%/min) 71FIC0001 OP 4%Enable timer 5 min
+51TIC021 SP=-160°C (Ramp 0.5°C/min)81TE0006 < -159°C
+Enable timer 10 minEnable timer 5 min
+71FIC0001 Auto SP=700kg/h
+(Ramp 20 kg/min)71FIC0001 SP=700kg/h
+51FRY41A OP < 51TIC021 OP
+51TIC021 OP 100%
+Reliq. Load Controller ActivatedACTION CONDITION FOR NEXT STEP
+ 
+  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 18 - 
+ NORMAL  TO IDLE  
+End of SequenceNORMAL MODE
+BOG FLOW Mode & Input 700 kg/h 72FT0001 <= 700kg/h
+Reliq. Load Controller De-activation
+71FIC0001 Man 4% (Ramp 1.5%/min)71FIC0001 OP 4%
+51TIC021 Auto SP = PV
+51TIC021 OP = 51FRY41E
+51TIC021 SP=-150°C (Ramp 0.5°C/min)81TE0006 > -151°CEnable timer 10 min
+71FIC0001 Man 3% (Ramp 1.5%/min) 71FIC0001 OP 3%
+51TIC021 SP=-140°C (Ramp 0.5°C/min)81TE0006 > -141°C
+Enable timer 10 min
+71FIC0001 Man 2% (Ramp 1.5%/min) 71FIC0001 OP 2%Enable timer 10 min
+51TIC021 SP=-130°C (Ramp 0.5°C/min)81TE0006 > -131°C
+Enable timer 10 minEnable timer 10 min
+71FIC0001 Man 0% (Ramp 1.5%/min)
+71TIC0001 Man 0%71FCV0001 CLOSEDEnable timer 10 min
+81TRH0017 >= -35°C/hrACTION CONDITION FOR NEXT STEP
+ 
+  
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 19 - 
+ STOP ( WARM STOP / COLD STOP / TRIP)  
+End of sequenceCompander motor running
+COLD STOP
+TRIPIDLE MODE
+Reliq. Load Controller De-activation
+51TIC021 SP=40°C
+(Ramp 0.7°C/min)51TIC021 PV > 0°C
+51DPCV41 <= 5%
+Reliq. Load Controller De-activation
+71FIC0001 Man 100%
+71TIC0001 Man 100%
+72XV0004 CLOSE
+51HIC10 100% (Ramp 1%/s)
+51FRIC41 Man51HIC10 OP > 90%WARM STOP
+Reliq. Load Controller De-activation
+71FIC0001 Man 100%
+71TIC0001 Man 100%
+72XV0004 CLOSE
+51HIC10 100%
+51HIC1 100%
+51HIC2 100%
+51JIC3 Man 100%
+51FRIC41 Man
+De-energize 51SV10
+De-energize 51SV1
+De-energize 51SV2
+De-energize 51SV3 
+Enable timer T1 60 s
+Motor stop
+De-energize 51XV110A
+De-energize 51XV110B
+51HIC41A 5%
+51FRIC41 Man 0%
+51FRIC10 Man 100%
+51IIC1 Man 0%
+Enable timer T2 60 s51HIC10 100%
+51HIC1 100%
+51HIC2 100%
+51JIC3 Man 100%
+51FRIC41 Man
+De-energized 51SV10
+De-energized 51SV1
+De-energized 51SV2
+De-energized 51SV3
+De-energized 51XV110A
+De-energized 51XV110B
+51HIC41A 5%
+51FRIC41 Man 0%
+51FRIC10 Man 100%
+51IIC1 Man 0%
+51HIC41B 100%
+51HY41B Input=151HIC41B 100%
+51HY41B Input=1
+ 
+ 
+ HI-ERSⓃ Doc. No. :  RL-KM60002 -A-03 
+Doc. Ver.: - 
+OPERATION AND CONTROL PHILOSOPHY  Date :  27 Sep. 202 4 
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd  
+ 
+- 20 - 
+ APPENDIX 2. OVERALL CONTROL LOGIC DIAGRAM  
+ 
+PIC
+Tank Pressure 
+Controller
+From GMSSP
+PIC
+Suction Pressure 
+ControllerSplit 
+Ratio
+   
+ 
+MTICTE
+TIC TE
+ 
+TE
+FIC
+BOG Flow 
+Controller
+TIPIT PIC
+Seal Gas
+FTBOG From LD 
+Compressor
+F(x)FRIC
+41
+FRIC
+10
+Expander By-pass ValveDPCV.41
+Expander NozzleXIC
+1
+XIC
+2
+XIC
+3BOG From 
+Cargo Tank
+Return to 
+Cargo TankTo LD 
+Compressor
+N2 From Ship's 
+N2 buffer tank
+Seal GasN2 buffer tank
+N2 Expansion 
+VesselPITSWN2 Supply 
+SystemN2 DryerPIT PIC
+Vent
+PI TI FT TIPI TIPIPI41
+1121 2231 32
+1241 11 12
+41 31 3241 21 2211
+PIC
+HIC
+10
+021HIC
+41AHIC
+41BHIC
+41C
+5%N2 boosting compressor 
+supply pressure controller
+Compander load controller Anti surge controllers
+Manual override controller 
+81XV0001 81PCV0001
+82PCV0001
+81PCV0004 81PCV0003
+81TCV0001
+81TCV000281XV0002
+AA
+72XV0004
+N2 loop cooldown 
+controllerN2 seal gas buffer tank 
+pressure controller30barA72XV0003 72XV0001XV-0002
+-50CºBOG heat exchanger 
+temperature controller
+71FCV000181PCV0002
+XY
+41FRI
+1
+FRI
+2
+FRI
+3
+FRY
+41AFRY
+41D
+FRY
+41C
+FRY
+41EHY
+41B
+HY
+41AXY
+10
+HIC
+10A
+Compander warm load 
+control at full speed
+HIC
+3HIC
+2HIC
+1
+1111A
+2121 3131 33 33A 33FI
+33SP
+1.0
+SCV.3 SCV.2 SCV.1SPGMSRe-liquefaction 
+load controller
+XICTo Expander 
+Inlet
+From BOG HEXBOG HEX
+Ex
+Ex
+JIC
+3JY
+3
+81TCV0003
+FCV10
+120 kW0001
+000172
+72
+71
+0001
+81
+0006001281
+000182
+000282Cold Heat Recovery Mode
+Non-Cold Heat Recovery ModeSW81PCV0005Vent
+11
+PIC
+TE
+0005TIC
+H81
+0001
+82
+0001
+8181
+000571
+000171
+0001
+ 

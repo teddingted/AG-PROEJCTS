@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi-Way Calculator</title>
+    <!-- Google Fonts: Prompts or Noto Sans KR for HD Hyundai look -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            /* Darker background for contrast */
+            --text-color: #f1f5f9;
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(2, 228, 0, 0.3);
+            /* Green border hint */
+
+            /* HD Hyundai Brand Colors */
+            --brand-green: #02E400;
+            --brand-navy: #003082;
+            /* Deep Navy Blue */
+            --brand-dark: #00281F;
+            /* Dark Greenish Black */
+
+            --primary-accent: var(--brand-green);
+            --secondary-accent: var(--brand-navy);
+            --success-color: #02E400;
+            --danger-color: #ff4d4f;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle at 10% 20%, #001000 0%, #000000 90%);
+        }
+
+        /* Background Animation - Toned down for professional look */
+        .background-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--brand-green);
+            top: -10%;
+            left: -10%;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--brand-navy);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, -40px);
+            }
+        }
+
+        /* Glass Container */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 8px 32px 0 rgba(0, 48, 130, 0.2);
+            /* Navy shadow */
+            margin: 2rem 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--brand-green);
+            padding-bottom: 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--brand-green);
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Input Section */
+        .input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text-color);
+            font-family: 'Noto Sans KR', sans-serif;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        textarea:focus {
+            border-color: var(--brand-green);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            /* More square for corporate look */
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .primary-btn {
+            background: var(--brand-green);
+            color: #000;
+            /* Black text on green for visibility */
+        }
+
+        .primary-btn:hover {
+            box-shadow: 0 0 15px var(--brand-green);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+        }
+
+        .secondary-btn:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .date-input {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+            padding: 0.4rem;
+            border-radius: 4px;
+            color: var(--text-color);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--brand-green);
+        }
+
+        .card.target-card::before {
+            background: var(--brand-navy);
+        }
+
+        .card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .big-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--brand-green);
+            text-shadow: 0 0 20px rgba(2, 228, 0, 0.3);
+            transition: color 0.3s;
+        }
+
+        /* Pulse Animation for >100% Achievement */
+        @keyframes pulse-neon {
+            0% {
+                text-shadow: 0 0 10px rgba(2, 228, 0, 0.5);
+                transform: scale(1);
+            }
+
+            50% {
+                text-shadow: 0 0 25px rgba(2, 228, 0, 1), 0 0 50px rgba(2, 228, 0, 0.8);
+                transform: scale(1.05);
+                color: #fff;
+            }
+
+            100% {
+                text-shadow: 0 0 10px rgba(2, 228, 0, 0.5);
+                transform: scale(1);
+            }
+        }
+
+        .pulse-text {
+            animation: pulse-neon 1.5s infinite ease-in-out;
+        }
+
+        .progress-bar-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            height: 8px;
+            width: 100%;
+            margin: 1rem 0;
+            overflow: hidden;
+            /* Changed dynamically via JS if needed */
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--brand-green);
+            width: 0%;
+            transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+            /* Smooth "Jjook" animation */
+        }
+
+        .progress-bar-excess {
+            transition: width 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+            /* Delay slightly for effect */
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .calendar-section h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            /* 7 days */
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            /* Square cells */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .calendar-day:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .calendar-day.header {
+            background: transparent;
+            aspect-ratio: auto;
+            min-height: auto;
+            text-align: center;
+            font-weight: bold;
+            color: #888;
+            padding-bottom: 0.5rem;
+        }
+
+        .cal-date {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .cal-hours {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--brand-green);
+        }
+
+        .cal-status {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: auto;
+        }
+
+        /* Status Colors for Calendar */
+        .day-work-good {
+            border-bottom: 3px solid var(--brand-green);
+        }
+
+        .day-work-bad {
+            border-bottom: 3px solid var(--danger-color);
+        }
+
+        .day-leave {
+            border-bottom: 3px solid var(--brand-navy);
+            background: rgba(0, 48, 130, 0.1);
+        }
+
+        .day-holiday {
+            border-bottom: 3px solid #555;
+            color: #555;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: var(--brand-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-container">
+        <header>
+            <h1>Hi-Way Calculator</h1>
+            <p>Hi-HR의 "월 근무계획 수립" 데이터 기반</p>
+            <p style="font-size:0.8rem; margin-top:0.3rem; opacity:0.6;">Updated: 2026.02.12 by Kh</p>
+        </header>
+
+        <section class="input-section">
+            <textarea id="dataInput" placeholder="페이지 전체 선택 (Ctrl-A) 해서 복사해도 기능 상 문제는 없습니다."></textarea>
+            <div class="controls">
+                <label style="display:flex; align-items:center; gap:0.5rem; color:#cbd5e1;">
+                    계산 기준일: <input type="date" id="cutoffDate" class="date-input">
+                </label>
+                <button id="calcBtn" class="primary-btn">Calculate</button>
+                <button id="clearBtn" class="secondary-btn">Clear</button>
+            </div>
+        </section>
+
+        <section class="dashboard hidden" id="dashboard">
+            <div class="card summary-card">
+                <h3 id="totalTitle">Total Sisu</h3>
+                <div class="big-number" id="totalSisu">0</div>
+                <!-- User requested only Sisu, removing sub-text -->
+            </div>
+
+            <div class="card target-card">
+                <h3>업무 달성률</h3>
+                <div class="progress-bar-container" style="position:relative;">
+                    <div class="progress-bar" id="progressBar"
+                        style="width: 0%; position:absolute; top:0; left:0; z-index:1;"></div>
+                    <div class="progress-bar-excess" id="progressBarExcess"
+                        style="width: 0%; background:#fff; height:100%; position:absolute; top:0; left:0; z-index:2;">
+                    </div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressPercent"
+                        style="font-size:1.5rem; font-weight:bold; color:var(--brand-green);">0%</span>
+                    <span style="font-size:0.9rem; opacity:0.7;">(목표: <span id="targetDisplay">0</span>h)</span>
+                </div>
+                <div id="excessText"
+                    style="margin-top:0.5rem; font-weight:bold; color:var(--brand-green); display:none;">
+                    추가 근무: <span id="excessHours">0.0</span>h
+                </div>
+                <!-- Hidden input for manual override if needed, but usually dynamic -->
+                <input type="hidden" id="targetHours" value="40">
+            </div>
+        </section>
+
+        <!-- New Calendar Section -->
+        <section class="calendar-section hidden" id="calendarSection">
+            <h2>Monthly Overview</h2>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Days will be injected here -->
+            </div>
+        </section>
+
+        <section class="details hidden" id="details">
+            <h2>Detailed Logs</h2>
+            <div class="table-container">
+                <table id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>일자</th>
+                            <th>구분</th>
+                            <th>시수</th>
+                            <th>목표</th>
+                            <th>실적</th>
+                            <th>누적</th>
+                            <th>추가 근무</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataInput = document.getElementById('dataInput');
+            const calcBtn = document.getElementById('calcBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const dashboard = document.getElementById('dashboard');
+            const details = document.getElementById('details');
+            const resultTableBody = document.querySelector('#resultTable tbody');
+
+            // Stats Elements
+            const totalSisuEl = document.getElementById('totalSisu');
+
+            const progressBar = document.getElementById('progressBar');
+            const progressBarExcess = document.getElementById('progressBarExcess');
+            const progressPercent = document.getElementById('progressPercent');
+            const targetDisplay = document.getElementById('targetDisplay');
+            const excessText = document.getElementById('excessText');
+            const excessHours = document.getElementById('excessHours');
+
+            const cutoffDateInput = document.getElementById('cutoffDate');
+            const targetHoursInput = document.getElementById('targetHours');
+
+            // Set default cutoff date to Yesterday (D-1)
+            const today = new Date();
+            today.setDate(today.getDate() - 1);
+            const yesterdayStr = today.toISOString().split('T')[0];
+            cutoffDateInput.value = yesterdayStr;
+
+            calcBtn.addEventListener('click', () => {
+                const rawText = dataInput.value;
+                const cutoffDate = cutoffDateInput.value;
+
+                const results = parseHiHRData(rawText, cutoffDate);
+
+                updateUI(results);
+            });
+
+            clearBtn.addEventListener('click', () => {
+                dataInput.value = '';
+                dashboard.classList.add('hidden');
+                details.classList.add('hidden');
+            });
+
+            cutoffDateInput.addEventListener('change', () => {
+                if (!dashboard.classList.contains('hidden')) calcBtn.click();
+            });
+
+            function parseHiHRData(text, cutoffDate) {
+                const lines = text.split('\n');
+                const parsedRows = [];
+                let totalTime = 0;
+                let totalTarget = 0;
+                let totalSisu = 0;
+
+                // Performance Trackers (Excluding Leaves)
+                let perfSisuTotal = 0;
+                let perfTargetTotal = 0;
+
+                // Cumulative trackers
+                let runningRecognized = 0;
+                let runningTarget = 0;
+                let sisuRemainder = 0;
+
+                const dateRegex = /(\d{4}-\d{2}-\d{2})/;
+                const timeRangeRegex = /(\d{1,2}:\d{2})\s*[-~]\s*(\d{1,2}:\d{2})/;
+
+                lines.forEach(line => {
+                    const dateMatch = line.match(dateRegex);
+
+                    if (dateMatch) {
+                        const dateStr = dateMatch[1];
+
+                        // Cutoff Check
+                        if (cutoffDate && dateStr > cutoffDate) {
+                            return; // Ignore future dates
+                        }
+
+                        let workHours = 0;
+                        let nonWorkHours = 0;
+                        let leaveHours = 0;
+                        let dailyTarget = 8.0;
+                        let timeStr = "";
+                        let status = "출근";
+                        let statusClass = "status-warning";
+                        let isHoliday = false;
+
+                        // Check for Leave/Holiday first
+                        if (line.includes("코어타임연차")) {
+                            leaveHours = 4.0;
+                            status = "코어타임연차";
+                            statusClass = "status-valid";
+                        } else if (line.includes("반차")) {
+                            leaveHours = 4.0;
+                            status = "반차";
+                            statusClass = "status-valid";
+                        } else if (line.includes("연차휴가")) {
+                            leaveHours = 8.0;
+                            status = "연차";
+                            statusClass = "status-valid";
+                        } else if (line.includes("주휴일") || line.includes("유급휴일")) {
+                            leaveHours = 0;
+                            dailyTarget = 0;
+                            status = "휴일";
+                            isHoliday = true;
+                        }
+
+                        // Work Time
+                        const timeMatch = line.match(timeRangeRegex);
+                        if (timeMatch) {
+                            timeStr = timeMatch[0];
+                            statusClass = "status-valid";
+                            if (status !== "출근" && status !== "휴일") {
+                                status += " + 근무";
+                            } else if (status === "휴일") {
+                                status = "휴일 근무";
+                            }
+
+                            let cleanLine = line.replace(dateRegex, "").replace(timeMatch[0], "");
+                            const floatMatches = cleanLine.match(/\b\d+\.\d{2}\b/g);
+
+                            if (floatMatches) {
+                                const floats = floatMatches.map(f => parseFloat(f));
+                                workHours = Math.max(...floats);
+                                if (floats.length >= 2 && floats[0] === workHours) {
+                                    nonWorkHours = floats[1];
+                                }
+                            }
+                        }
+
+                        // Effective Work (Pure Actual) -> User says parsed workHours is ALREADY Net.
+                        let effectiveWork = workHours;
+
+                        // Recognized Time (For Cumulative/Target)
+                        // User correction: Cumulative time should be based on Actual/Work Hours (Pure Actual).
+                        let recognizedTime = effectiveWork + leaveHours;
+
+                        // Sisu Logic:
+                        // User clarification: Sisu should EXCLUDE Non-Work time.
+                        // Leave hours SHOULD count for Total Sisu, but maybe filtered for Performance Sisu.
+
+                        // Main Sisu Input
+                        let sisuInput = effectiveWork + leaveHours + sisuRemainder;
+                        let dailySisu = Math.floor(sisuInput);
+                        let newRemainder = sisuInput - dailySisu;
+                        sisuRemainder = newRemainder;
+
+                        // Performance Check (Excluding Annual/Core Leave)
+                        if (!isHoliday && !line.includes("연차휴가") && !line.includes("코어타임연차")) {
+                            perfSisuTotal += dailySisu;
+                            perfTargetTotal += dailyTarget;
+                        }
+
+                        // Filter Holidays if no work done
+                        if (isHoliday && effectiveWork === 0) {
+                            return; // Skip this row
+                        }
+
+                        runningRecognized += recognizedTime;
+                        runningTarget += dailyTarget;
+
+                        let dailyGap = recognizedTime - dailyTarget;
+                        let cumulativeGap = runningRecognized - runningTarget;
+
+                        parsedRows.push({
+                            date: dateStr,
+                            status: status,
+                            hours: effectiveWork,
+                            sisu: dailySisu,
+                            target: dailyTarget,
+                            cumulativeWork: runningRecognized,
+                            cumulativeGap: cumulativeGap,
+                            nonWork: nonWorkHours,
+                            statusClass: dailyGap >= -0.01 ? "status-valid" : "status-error"
+                        });
+
+                        totalTime = runningRecognized;
+                        totalTarget = runningTarget;
+                        totalSisu += dailySisu;
+                    }
+                });
+
+                return {
+                    rows: parsedRows,
+                    total: totalTime,
+                    dynamicTarget: totalTarget,
+                    totalSisu: totalSisu,
+                    perfSisu: perfSisuTotal,
+                    perfTarget: perfTargetTotal
+                };
+            }
+
+            // Animation Helper
+            function animateValue(obj, start, end, duration, isPercent = false) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+                    // Ease-out quad
+                    // const ease = 1 - Math.pow(1 - progress, 2);
+                    const val = Math.floor(progress * (end - start) + start);
+
+                    obj.textContent = val + (isPercent ? '%' : '');
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        obj.textContent = end + (isPercent ? '%' : '');
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            function updateUI(data) {
+                dashboard.classList.remove('hidden');
+                details.classList.remove('hidden');
+
+                // 1. Total Title Update
+                const totalTitle = document.getElementById('totalTitle');
+                const cutoffVal = cutoffDateInput.value;
+                // Format date if needed, or just use YYYY-MM-DD
+                if (cutoffVal) {
+                    totalTitle.textContent = `${cutoffVal} 까지의 근무 시간`;
+                } else {
+                    totalTitle.textContent = "누적 근무 시간";
+                }
+
+                // 1. Total Sisu (Animated)
+                // Use 0 as start or current value if known? For now simply start from 0 for emphasis
+                animateValue(totalSisuEl, 0, data.totalSisu, 1000);
+
+                // 2. Progress Bar
+                const effectiveTarget = data.dynamicTarget;
+                if (targetDisplay) targetDisplay.textContent = effectiveTarget.toFixed(0);
+
+                let percent = effectiveTarget > 0 ? (data.total / effectiveTarget) * 100 : 0;
+
+                // Initial Reset for animation
+                progressBar.style.width = '0%';
+                progressBarExcess.style.width = '0%';
+
+                // Animate Percentage Text
+                animateValue(progressPercent, 0, Math.round(percent), 1500, true);
+
+                // Wait a tick then set width to trigger CSS transition
+                setTimeout(() => {
+                    const mainWidth = Math.min(100, percent);
+                    progressBar.style.width = `${mainWidth}%`;
+
+                    if (percent > 100) {
+                        progressBarExcess.style.display = 'block';
+                        // Reset to 0 then animate to width
+                        progressBarExcess.style.width = '0%';
+                        // Slight delay for excess bar
+                        setTimeout(() => {
+                            progressBarExcess.style.width = `${Math.min(100, percent - 100)}%`;
+                            progressBarExcess.style.left = '100%';
+                            document.querySelector('.progress-bar-container').style.overflow = 'visible';
+                        }, 500); // 0.5s delay
+
+                        excessText.style.display = 'block';
+                        excessHours.textContent = "+" + (data.total - effectiveTarget).toFixed(2);
+
+                        // Add Pulse Effects
+                        progressPercent.classList.add('pulse-text');
+                        excessText.classList.add('pulse-text');
+                    } else {
+                        progressBarExcess.style.display = 'none';
+                        excessText.style.display = 'none';
+                        document.querySelector('.progress-bar-container').style.overflow = 'hidden';
+
+                        progressPercent.classList.remove('pulse-text');
+                        excessText.classList.remove('pulse-text');
+                    }
+                }, 100);
+
+                if (percent >= 100) {
+                    progressBar.style.background = 'var(--success-color)';
+                } else {
+                    progressBar.style.background = 'linear-gradient(90deg, var(--success-color), var(--primary-accent))';
+                }
+
+                // Render Calendar
+                renderCalendar(data.rows);
+
+                // Update Table
+                resultTableBody.innerHTML = '';
+                if (data.rows.length === 0) {
+                    resultTableBody.innerHTML = '<tr><td colspan="7" style="text-align:center">데이터를 찾을 수 없습니다. (기준일 확인 필요)</td></tr>';
+                    return;
+                }
+
+                data.rows.forEach(row => {
+                    const tr = document.createElement('tr');
+
+                    const gapColor = row.cumulativeGap >= 0 ? 'var(--success-color)' : 'var(--danger-color)';
+                    const gapSign = row.cumulativeGap >= 0 ? '+' : '';
+
+                    let actualDetail = "";
+                    if (row.nonWork > 0) actualDetail = `<br><span style="font-size:0.7em; color:var(--danger-color)">(-${row.nonWork.toFixed(2)})</span>`;
+
+                    tr.innerHTML = `
+                    <td>${row.date}</td>
+                    <td>${row.status}</td>
+                    <td style="font-weight:bold; color:var(--primary-accent)">${row.sisu}</td>
+                    <td>${row.target.toFixed(2)}</td>
+                    <td style="font-weight:bold">
+                        ${row.hours.toFixed(2)}
+                        ${actualDetail}
+                    </td>
+                    <td>${row.cumulativeWork.toFixed(2)}</td>
+                    <td style="color:${gapColor}; font-weight:bold">
+                        ${gapSign}${row.cumulativeGap.toFixed(2)}
+                    </td>
+                `;
+                    resultTableBody.appendChild(tr);
+                });
+            }
+
+            // Helper for Gradient Color
+            function getColorForHours(hours) {
+                // Standard: 8.0
+                // User Request: Shortage (Yellow) -> Target (Green) -> Excess (Red)
+
+                // Define points
+                const low = { r: 255, g: 255, b: 0 };   // #FFFF00 (Yellow) - 0h to 8h (start)
+                const mid = { r: 2, g: 228, b: 0 };     // #02E400 (Green) - 8h
+                const high = { r: 255, g: 50, b: 50 };  // #ff3232 (Bright Red) - 9.5h+
+
+                let r, g, b;
+
+                if (hours < 8) {
+                    // Interpolate Yellow -> Green
+                    // For better visibility, let's keep it mostly Yellow until close to 8
+                    // 0h = Yellow, 8h = Green
+                    const ratio = Math.max(0, hours) / 8;
+                    // Use square root to make it stay yellow longer
+                    // const adjustedRatio = Math.sqrt(ratio); 
+                    // Actually linear is safer for standard gradients
+                    r = Math.round(low.r + (mid.r - low.r) * ratio);
+                    g = Math.round(low.g + (mid.g - low.g) * ratio);
+                    b = Math.round(low.b + (mid.b - low.b) * ratio);
+                } else if (hours === 8) {
+                    return `rgb(${mid.r}, ${mid.g}, ${mid.b})`;
+                } else {
+                    // Interpolate Green -> Red quickly
+                    // 8h = Green, 9.5h = Max Red
+                    const ratio = Math.min(1, (hours - 8) / 1.5); // Changed from /4 to /1.5 for sharper red
+                    r = Math.round(mid.r + (high.r - mid.r) * ratio);
+                    g = Math.round(mid.g + (high.g - mid.g) * ratio);
+                    b = Math.round(mid.b + (high.b - mid.b) * ratio);
+                }
+
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
+            function renderCalendar(rows) {
+                const calSection = document.getElementById('calendarSection');
+                const calGrid = document.getElementById('calendarGrid');
+
+                if (!rows || rows.length === 0) {
+                    calSection.classList.add('hidden');
+                    return;
+                }
+
+                calSection.classList.remove('hidden');
+                calGrid.innerHTML = '';
+
+                // Headers
+                const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                days.forEach(d => {
+                    const div = document.createElement('div');
+                    div.className = 'calendar-day header';
+                    div.textContent = d;
+                    calGrid.appendChild(div);
+                });
+
+                // Determine Range (Naive approach: just show the range of data provided)
+                // Ideally we show a full month. Let's find the First Date's Month.
+                const firstDate = new Date(rows[0].date);
+                // Start from the 1st of that month
+                const startDate = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1);
+                // End at the last day of that month
+                const endDate = new Date(firstDate.getFullYear(), firstDate.getMonth() + 1, 0);
+
+                // Fill blanks before start date
+                for (let i = 0; i < startDate.getDay(); i++) {
+                    const blank = document.createElement('div');
+                    blank.className = 'calendar-day';
+                    blank.style.background = 'transparent';
+                    calGrid.appendChild(blank);
+                }
+
+                // Fill days
+                for (let d = 1; d <= endDate.getDate(); d++) {
+                    const currentDayStr = `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+
+                    // Find data for this day
+                    const dayData = rows.find(r => r.date === currentDayStr);
+
+                    const cell = document.createElement('div');
+                    cell.className = 'calendar-day';
+
+                    if (dayData) {
+                        // Style based on content
+                        if (dayData.status.includes("연차") || dayData.status.includes("반차")) {
+                            cell.classList.add('day-leave');
+                        } else if (dayData.status.includes("휴일")) {
+                            cell.classList.add('day-holiday');
+                        } else if (dayData.status.includes("출근") || dayData.hours > 0) {
+                            if (dayData.statusClass === 'status-valid') {
+                                cell.classList.add('day-work-good');
+                            } else {
+                                cell.classList.add('day-work-bad');
+                            }
+                        }
+
+                        // Content
+                        const hrsDisplay = dayData.hours > 0 ? dayData.hours.toFixed(1) : (dayData.leave > 0 ? "L" : "-");
+
+                        // Color Logic
+                        let colorStyle = "";
+                        if (dayData.hours > 0) {
+                            colorStyle = `color: ${getColorForHours(dayData.hours)}; text-shadow: 0 0 5px rgba(0,0,0,0.5); font-weight:800;`;
+                        } else if (dayData.leave > 0) {
+                            colorStyle = "color: #fff; opacity: 0.7;";
+                        }
+
+                        cell.innerHTML = `
+                        <span class="cal-date">${d}</span>
+                        <span class="cal-hours" style="${colorStyle}">${hrsDisplay}</span>
+                        <span class="cal-status">${dayData.status.split(' ')[0]}</span>
+                    `;
+                    } else {
+                        // Empty day (future or missing data)
+                        cell.innerHTML = `<span class="cal-date">${d}</span>`;
+                        cell.style.opacity = "0.3";
+                    }
+
+                    calGrid.appendChild(cell);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

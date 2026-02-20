@@ -1,0 +1,2493 @@
+ HYUNDAI INNOVAT IVE ECONOMIC AL RELIQUEFACTION  SYSTEM NITROGEN  
+ 
+ 
+ 
+ 
+ 
+FUNCTIONAL DESIGN SPECIFICATION FOR HI-ERSⓃ 
+ 
+ 
+ 
+Caution  
+This document contains confidential proprietary information. Hence, the reproduction, transfer and/or 
+utilization in whole or in part are prohibited without the written permission of Korea Shipbuilding & 
+Offshore Engineering.  P
+ROJECT / IMO NO. 174K LNG Carrier / 9976135 
+HULL NO. / NAME 8196 / KOOL TIGER
+SHIP OWNER COOLCO
+SHIP CLASSIFICATION LR
+DOCUMENT NO. RL-KD30005-A Version -
+RESPONSIBLE PARTY Digital Solution Department
+Rev. Date Reason of Issue Prepared Checked Approved 
+ORI 31 Aug. 2023 For approval J.U. JEONG J.W. LEE H.S. PARK 
+100 21 Jul. 2023 For re-approval J.U. JEONG J.W. LEE H.S. PARK 
+200 26 Sep. 2023 For re-approval J.U. JEONG J.W. LEE H.S. PARK 
+300 16 Feb. 2024 For re-approval M.C. KIM J.U. JEONG H.S. PARK 
+400 29 May 2024 For re-approval M.C. KIM J.U. JEONG H.S. PARK
+- 27 Sep. 2024 Finished Plan B.S. WOO B.S. WOO H.S. PARK
+HD HSHI
+ HI-ERSⓃ Doc. No.  : RL-KD30005 -A Do
+c. Ver. : -
+Functional Design Specification  D a t e     ‘: 27 Sep. 2024
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd.  
+-2- 
+Revision Sheet  
+ 
+Rev. 
+No. Date  Mark  
+(   )  Description  By 
+ORI 31 Aug. 2023   First Issued  Maker  
+100 21 Jul. 2023   Yard Comment  Maker  
+200 26 Sep. 2023  2 Updated according to the Yard document  
+P.7: Updated Reference documents in Sec. 1.1  
+P.8: Added HMI graphic in Sec. 2  
+P.9: Added HMI graphic in Sec. 3.1.1.1  
+P.10: Revised tag number (81TIC -002 -> 81TIC -001) in Sec. 
+3.1.1.2  
+P.12: Revised tag number (71FIC001 -> 71FIC0001) in Sec. 
+3.1.2.2  
+P.12: Revised tag number (81PIC003 -> 81PIC0003) in Sec. 
+3.1.2.2  
+     Revised tag number (PI11A -> 61PIT011A) in Sec. 3.1.2.2  
+P.13: Updated start sequ ence in Sec. 3.1.3.1  
+P.15: Updated normal stop/trip sequence in Sec. 3.1.3.2  
+P.16: Added HMI graphic in Sec. 3.2  
+P.19: Revised tag number ( PIT103 -> 81PIT 103) in Sec. 3. 2.3.1  
+ Revised tag number (TCT101 -> 81TCTT201) in Sec. 3.2.3.2  
+Revised tag number (DT101 -> 81DT201) in Sec. 3.2.3.3  
+Revised tag number (CD101 -> 81CD201) in Sec. 3.2.3.3  
+Added set point in Section 3.2.3.3  
+P.20: Revised tag number (TT103 -> 81TT103) in Sec. 3.2.3.4  
+Revised tag number (TT104 -> 81TT104) in Sec. 3.2.3.4  
+Revised tag number  (81PIC001 -> 81PIC0001) in Sec. 
+3.2.3.5  
+Revised tag number (81PI0012 -> 81PIT0012) in Sec. 
+3.2.3.5  
+P.20: Revised tag number ( 81PIC002  -> 81PIC0002 ) in Sec. 
+3.2.3.6  
+Revised tag number ( 82PI0001  -> 82PIT0001 ) in Sec. 
+3.2.3.6  
+Revised tag number ( 82PIC001  -> 82PIC00 01) in Sec. 
+3.2.3.7  
+Revised tag number ( 82PI0002  -> 82PIT0002 ) in Sec. 
+3.2.3.7  
+Added Section 3.2.3.8  
+P26: Added HMI graphic in Sec. 3.3  
+P27: Added HMI graphic in Sec. 3.3.1.1.1  
+P29: Added HMI graphic in Sec. 3.3.1.2  
+     Deleted Sec. 3.3.2  Maker  
+300 16 Feb. 2024  3 Updated FDS  according to the N2 Compander ’ document  and 
+C&E. 
+P.9: Updated Reference documents in Sec. 1.1  
+P.10: Updated HMI graphic  
+P.12: Updated the condition of operation mode in Sec. 3.1.1.1  
+Update d HMI graphic  
+P.16: Updated the condition of controller in Sec. 3.1.2.4  
+P.17: Updated All sequence in Sec. 3.1.3  
+P.26: Changed Section number (3.3 to 3.2)  
+P.26: Updated HMI graphic in Sec. 3.2. Maker  
+HD HSHI
+ HI-ERSⓃ Doc. No.  : RL-KD30005 -A Do
+c. Ver. : -
+Functional Design Specification  D a t e     ‘: 27 Sep. 2024
+ 
+ 
+HD Korea Shipbuilding & Offshore Engineering Co., Ltd.  
+-3- 
+Rev. 
+No. Date  Mark  
+(   )  Description  By 
+P.27: Updated HMI graphic in Sec. 3.2.1.1.1  
+P.27: Added  the condition of controller in Sec. 3.2.1.1.1  
+P.29: Updated the condition of controller in Sec. 3.2.1.1.3  
+Updated HMI graphic in Sec. 3.2.1.2  
+     Deleted “Figure 3 -3 General concept of anti -surge control ” 
+P.31~4: Added  Sec. 3.2.1.2.1 ~ 3.3.1.2.5  
+P.35~43: Added Sec. 3.2.1.3  ~ 3.2.1.6  
+P.44: Changed Section number (3.2 to 3.3)  
+Updated HMI graphic in Sec. 3.3 
+P.47~48: Updated the condi tion of controller in Sec. 
+3.3.3.1~3.3.3.4  
+P.50: Added  Trip conditions in Sec. 3.3.3.9  
+P.51: Updated Set point of SP03, 04 and 07 in Sec. 3.3.4 
+     Deleted SP06, 08 & 09  
+P.52~54: Updated start sequence in Sec. 3.3.4.1 ~ 3  
+P.55~57: Updated Cause & Effect. (Aligned the tag numbers and 
+description with I/O list. Added cause as per the N2 Compand er 
+Setpoint List  (HA0625_Setpoint List ).) 
+400 16 May 2024  4 The followings are revised as per the Cryostar ’s Setpoint list;  
+P.57: Changed the set point LL value of 51PIT114B.  
+P.58: Deleted the set point of 51ZE95 & 51ZE96  
+ 
+The followings are revised as per the Fives Cryo ’s clarification;  
+P.59: Added the setpoint values for 81TR0013/0015/0017/0019.  
+ 
+The followings are revised as per the P&ID;  
+P.59: Changed the set point values ( LL & HH) of 81PIT104.  Maker  
+23 May 2024  5 The followings are revised as per the vendor data of boosting
+compressor;
+P.55 ~ 59: Changed a description and a tag number in effect.
+P.59: Change the setpoint of 81TH201
+P.59: Added a cause of RN_1GSP42_42
+- 27 Sep. 2024   Finished Plan  Maker
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 1 of 51 
+ 
+Rev. Date  Revision memo  Issued by  Checked by  Approved by  
+As built  26-Sep-2024  As built  YBY  YBY  KDK  
+03 15-Dec-2023  Updated acc ording to document  M.S.KIM  M.S.KIM  M.S.JEONG  
+02 26-Sep-2023  Updated according to document  M.S.KIM  M.S.KIM  M.S.JEONG  
+01 21-Jul-2023  Yard Comment  M.S.KIM  M.S.KIM  M.S.JEONG  
+00 14-Jul-2023  For Approval  M.S.KIM  M.S.KIM  M.S.JEONG  
+This document is the proper ty of HGS . It must not be stored, reproduced or disclosed to others without written authorisation from H GS.. 
+  
+ 
+ Hyundai Intelligent Control & Integrated System 
+(HiCONiS )  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Functional Design Specification  
+Economical  Re-liquefaction  System  (Nitrogen ) 
+HSHI 8196  174K  CBM LNG Carrier  
+ 
+ 
+ 
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 2 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ TABLE OF REVISIONS  
+ 
+ 
+ 
+Revision  Description  
+00 For Approval  
+01 Yard Comment  
+02 Updated according to Yard document  
+03 Updated according to Cryostar document  
+04 As built 
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 3 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ TABLE OF CONTENT  
+ 
+ABBREV IATION  ................................ ................................ ................................ ................................ .........  5 
+1. GENERAL  ................................ ................................ ................................ ................................ ...............  6 
+2. SYSTEM DESCRIPTIO N ................................ ................................ ................................ .........................  7 
+3. PROCESS AND CONTROL  ................................ ................................ ................................ ..................  9 
+3.1. Economical re -liquefaction system (Nitrogen)  ................................ ................................ ...................  9 
+3.1.1.  BOG heat exchanger  ................................ ................................ ................................ .......................  9 
+3.1.1.1.  Operation mode  ................................ ................................ ................................ ............................  9 
+3.1.1.2.  LD compressor inlet temperature control (81TIC0001)  ................................ ................................ .10 
+3.1.2.  Control ................................ ................................ ................................ ................................ ............ 11 
+3.1.2.1.  Load control of ERS(N)  ................................ ................................ ................................ ................ 11 
+3.1.2.2.  BOG flow contorller (71FIC0001)  ................................ ................................ ................................ .12 
+3.1.2.3.  N2 Compander suction pressure contro ller (81PIC0003)  ................................ .............................. 12 
+3.1.2.4.  N2 Compander - Expander inlet temperature controller (71TIC0001) ................................ ............ 13 
+3.1.3.  Sequence  ................................ ................................ ................................ ................................ .......14 
+3.1.3.1.  Start interlock ................................ ................................ ................................ ............................... 14 
+3.1.3.2.  Trip ................................ ................................ ................................ ................................ .............. 16 
+3.1.3.3.  Start sequence (Cool -down) ................................ ................................ ................................ ......... 17 
+ ................................ ................................ ................................ ................................ ................................ ...17 
+3.1.3.4.  Idle to Normal mode sequence ................................ ................................ ................................ .....19 
+ ................................ ................................ ................................ ................................ ................................ ...19 
+3.1.3.5.  Normal to Idle mode sequence ................................ ................................ ................................ .....20 
+ ................................ ................................ ................................ ................................ ................................ ...20 
+3.1.3.6.  Normal (Warm&Cold) stop / Tr ip sequence  ................................ ................................ .................. 21 
+3.1.3.7.   ................................ ................................ ................................ ................................ .................... 21 
+3.2. N2 compander  ................................ ................................ ................................ ................................ ....23 
+3.2.1.  Control ................................ ................................ ................................ ................................ ............ 24 
+3.2.1.1.  Compander load control  ................................ ................................ ................................ ............... 24 
+3.2.1.2.  Compander Anti surge control  ................................ ................................ ................................ ......27 
+3.2.1.3.  Electric main motor control  ................................ ................................ ................................ ........... 32 
+3.2.1.4.  Aux. Lube oil pump control  ................................ ................................ ................................ ........... 35 
+3.2.1.5.  Lube oil electric heater control  ................................ ................................ ................................ .....38 
+3.2.1.6.  Seal gas control  ................................ ................................ ................................ ........................... 39 
+3.3. N2 supply system  ................................ ................................ ................................ ............................... 41 
+3.3.1.  N2 dryer  ................................ ................................ ................................ ................................ ......... 42 
+3.3.1.1.  N2 dryer A tower inlet sol valve (81SV201)  ................................ ................................ .................. 42 
+3.3.1.2.  N2 dryer B tower inlet sol valve (81SV202)  ................................ ................................ .................. 42 
+3.3.1.3.  N2 dryer A tower 1st  purge sol valve (81SV203)  ................................ ................................ .......... 42 
+3.3.1.4.  N2 dryer B tower 1st purge sol valve (81SV204)  ................................ ................................ ........... 42 
+3.3.1.5.  N2 dryer A tower 2nd purge sol valve (81SV205)  ................................ ................................ .......... 42 
+3.3.1.6.  N2 dryer B tower 2nd purge sol valve (81SV206)  ................................ ................................ .......... 42 
+3.3.1.7.  N2 dryer by -pass sol valve (81SV207)  ................................ ................................ ......................... 42 
+3.3.1.8.  N2 dryer N2 supply sol valve (81SV208)  ................................ ................................ ...................... 43 
+3.3.1.9.  N2 dryer CH4 sampling sol valve (81SV209)  ................................ ................................ ................ 43 
+3.3.1.10.  N2 dryer CO2 & Dew point sampling sol valve (81SV210)  ................................ .......................... 43 
+3.3.2.  N2 boosting compressor  ................................ ................................ ................................ ................. 43 
+3.3.2.1.  N2 booster unloading valve (81SV101)  ................................ ................................ ........................ 43 
+3.3.3.  Control ................................ ................................ ................................ ................................ ............ 44 
+3.3.3.1.  N2 discharge pressure control of N2 boosting compressor  ................................ ........................... 44 
+3.3.3.2.  N2 regeneration temperature control of N2 dryer  ................................ ................................ .......... 44 
+3.3.3.3.  N2 supply control of N2 dryer  ................................ ................................ ................................ .......44 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 4 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.3.4.  Tower change control of N2 dryer  ................................ ................................ ................................ 45 
+3.3.3.5.  N2 boosting c ompressor inlet pressure control (81PIC0001)  ................................ ........................ 45 
+3.3.3.6.  N2 buffer tank pressure control (81PIC0002)  ................................ ................................ ............... 46 
+3.3.3.7.  N2 expansion vess el pressure control (82PIC0001)  ................................ ................................ .....46 
+3.3.3.8.  N2 compander suction pressure control (81PIC0005) ................................ ................................ ...46 
+3.3.3.9.  Trip ................................ ................................ ................................ ................................ .............. 47 
+3.3.4.  Sequence  ................................ ................................ ................................ ................................ .......48 
+3.3.4.1.  Start sequence  ................................ ................................ ................................ ............................ 49 
+3.3.4.2.  Tower control sequence  ................................ ................................ ................................ ............... 50 
+3.3.4.3.  Stop sequence  ................................ ................................ ................................ ............................. 51 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 5 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ Abbrev iation  
+Hi-ERS(N)  Hyundai Innovative – Economical Re -Liquefaction System (Nitrogen)  
+LNG  Liquefied Natural Gas  
+LNGC  Liquefied Na tural Gas Carrier  
+BOG  Boil-Off Gas  
+NBOG  Natural Boil -Off Gas  
+FGSS  Fuel Gas Supply System  
+LDC  Low duty compressor  
+PCHE  Printed Circuit Heat Exchanger  
+PFHE  Plate Fin Heat Exchanger  
+Compander  Integrally Geared Compressor and Expander  
+IAS Integrated Au tomation System  
+GMS  Gas Management System  
+PSD Process Shutdown  
+DFGE  Dual Fuel Generator Engine  
+FDS Functional Design Specification  
+HP High Pressure  
+LP Low Pressure  
+SP Set Point  
+PV Process Value  
+OP Controller Output  
+N2 Nitrogen  
+CMD  Command  
+LOP  Local Operation Panel  
+MV Manipulate Valu e 
+PIT Pressure Indication Transmitter  
+TIT Temperature Indication Transmitter  
+PIC Pressure Indication / Controller  
+TIC Temperature  Indication / Controller  
+FIC Flow  Indication Controller  
+TK Tank  
+AS Anti-Surge  
+CTL Control line  
+C1/2/3  Compander Stage 1/2/3  
+RSP Remote Set Point  
+SFL Safety line  
+SPL Set point List  
+TM Time Out  for sequence  
+  
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 6 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 1. General  
+This document describes economical re -liquefaction  system FDS for 174K  CBM LNG Carrier, Hull No. 
+HSHI8196s . 
+ 
+1.1.  Reference document  
+The following documents have been used as reference.  
+Title Drawing or Document No.  Remark  
+N2 Compander_P&ID  70414900 (HA0625)  Rev.A G 
+N2 Compander Control Narrative  HA0625A/26A  Rev.3 
+N2 Compander Wiring Diagram  800 001145 (HA0625N)  Rev.A B 
+N2 Compander Logic Diagram  800003436  (HA0625)  Rev.A C 
+N2 Compander Setpoint List  HA0625_ Setpoint List  Rev.4 
+N2 Booster & Dryer_FDS  KSOE_H8196_N2 BOOSTER  
+& DRYER SYSTEM  Rev.11  
+N2 Boosting compressor P&ID  DHP-H8196 -N2B-PID Rev.11  
+N2 Dryer  P&ID  N2 Dryer  P&ID  Rev.11  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 7 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 2. System Description  
+ The IAS remotely controls the LNG re -liquefaction plant. Monitoring and control are performed from the 
+operator station i n the cargo control room (CCR).  
+However, operating responsibilities can be transferred to the oth er IAS operator stations in the 
+wheelhouse or engine control room (ECR) when required. All deck piping instruments (for pressure, 
+temperature, flow) and valve position indicators are interfaced to the IAS by remote input/output units 
+approved for installat ion in hazardous areas.  
+Process control stations for control of N2 compander, heaters and heat exchagers are installed in the 
+electrical equipment room (EER).  
+The ove rall design of the Hi -ERS(N)  is to maintain the cargo tank pressure for LNGc by re -lique fying 
+surplus BOG calculated by GMS. When the Hi -ERS(N) is operated, the surplus BOG after supply to gas 
+consumer including main engine, DFGE and GCU by LDC is fully liquefied by reverse Brayton cycle as 
+sub-cooled condition in Nitrogen Heat Exchanger and then returns to cargo tank.  
+The maker of the re-liquefaction  equipment describes how the equipment is designed and should be 
+operated. On this vessel the maker is Cryostar  and Donghwa Pneutec . To allow remote operation of the 
+systems, all control of valves , heater, heat exchangers, N2 boosting compressor and N2 comp ander  
+(including anti surge and N2 compander and compressor monitoring) is integrated in the IAS system.  
+ 
+ 
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 8 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ Control scope of Hi-ERS(N)  is as follows:  
+ 
+ One (1) N2 compander (Centrifugal type)  
+ One (1) N2 supply  system  
+- One(1) N2 boosting compressor  
+- One(1) filtration system  
+- One(1) N2 dryer 
+- One(1) N2 b uffer tank  
+- One(1) N2 e xpansion vessel  
+ One (1) BOG h eat exchanger  
+ One (1) N2 heat exchanger  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 9 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3. PROCESS AND CONTROL  
+3.1. Economical re -liquefaction  system (Nitrogen)  
+3.1.1.  BOG heat exchanger  
+3.1.1.1.  Operation mode  
+The main function  of BOG Heat Exchanger is to help the pre -cooling of warm compressed nitrogen by cold 
+energy of NBOG from cargo tank. There are two operation mode according to temperature of NBOG.  
+ 
+Mod e Description  (ERS_HEMODE_SEL)  
+On Cold heat recovery  
+Off Non-cold heat recovery  (default)  
+Interlock  - BOG supply flow (72FT0001) <= 1,450  kg/h 
+- Vapour main  temp (CS_8TTCG702) >  -80 ℃ 
+ 
+When the ship is anchored or the temperature of NBOG is below -80 ℃ during sea voy age, operator can select  
+mode on at IAS mimic  manually . Under other condition of sh ip, operator shall select mode off . 
+ 
+ 
+ 
+If operator selects  mode on , 72XV0001 and 72XV0003 are fully opened. Once the valves are fully opened, 
+72XV0002 is ful ly closed with interlock function.  
+ 
+Mode On Step 1. Open 72XV0001 and 72XV0003  
+Step 2. Close 72XV002  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 10 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ Mode Off 
+(Default)  Step 1. Open 72XV0002  
+Step 2. Close 72XV001 and 72XV0003  
+Fail action  Fail Open 72XV0002  
+Fail Close 72XV0001 and 72 XV0003  
+ 
+3.1.1.2.  LD comp ressor inlet temperature control  (81TIC0001)  
+LDC inlet t emperature controller, 81TIC001 , can be activated to control the inlet temperature of LDC by 
+adjusting  81TCV0002 and 81TCV0003. 81TIC0 001 output signal is used to command the temperature control 
+valve s 81TCV0002 (0 ~ 50 % of the signal) and 81TCV0003 (50 ~ 100 % of the signal) by split range  
+ 
+Purpose  To maintain the inlet temperature for LD compressor  
+PV 72TE0001  
+SP -50 ℃ 
+OP 81TCV0002 and 81TCV0003 by split range  (Refer to the below Figure 3 -1) 
+Acting Reverse  
+Tracking  - 
+Other  Fail Close 81TCV0002  
+Fail Open 81TCV0003  
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 11 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.2.  Control  
+3.1.2.1.  Load control of ERS(N)  
+Re-liquefaction load of Hi -ERS(N)  is controlled in either “Tank pressure control” mode or “BOG Flow control” 
+mode. If tank pressure control mode is  selected re -liquefaction load is automatically controlled according to 
+output of tank pressure controller from GMS as remote set point, SP GMS (Max. Output 1,500 kg/h). If BOG 
+flow control mode is selected re -liquefaction load is set by operator in manual.   
+ 
+The GMS calculates the amount of BOG remaining after supply fuel to engines and the surplus BOG is set to 
+the maximum output limit of the tank pressure controller for Hi -ERS(N).  
+ 
+The output of tank pressure controller is sent to the re -liquefaction loa d controller as remote set point (SP GMS). 
+The re -liquefaction load controller is provided to control the re -liquefaction flow rate and load of N2 refrigerant 
+loop. The re -liquefaction flow rate is controlled by BOG flow cont roller (71FIC 001), and load of N 2 refrigerant 
+loop is controlled by N2 compander suc tion pressure controller (81PIC 003). The pressure of the nitrogen loop 
+is controlled to have the correct mass flowrate of the compander corresponding to the correct cooling capacity 
+of Hi -ERS(N) .  
+ 
+The re-liquefaction load controller determines the set point of BOG flow controller as remote set point (SP REL). 
+When SP GMS is higher than SP REL, load increase of Hi-ERS(N) is required. On the contrary, when SP GMS is 
+lowe r than SP REL, load decre ase  is re quired. The  BOG flow  rate  should be  de pendently controlled with the 
+nitrogen refrigerant loop in order to maintain the temperature of condensate BOG (T C) within control range -
+156°C ~ - 159°C. If the temperature of condensate BOG (T C) is colder than control range (Level L) at the given 
+BOG flow rate, it means that the nitrogen refrigerant mass flow is too higher than required. On the contrary, if 
+the condensate BOG temperature (T C) is warmer than control range (Level H), it means that the nitrogen 
+refrigerant mass flow is insufficient. Therefore, nitrogen refrigerant mass flow is manipulated according to the 
+BOG flow rate variation. SP REL is changed by 50 kg/h at a time when one of load up or down conditions is 
+true. Cycle timer is started for 60 seconds (adjustable by administrator) since re-liquefaction load controller 
+is activated. It is to pre vent furthe r load change  during the  time . Cycle  timer is use d when T C is controlled 
+be twe e n  le ve l  L an d  H w i th o ut sig ni fic an t te m pe ratur e  ch ange  ra te . W he n  ‘ Ti m e  to  L o r H’  i s  le ss th an  5
+minutes, Cycle timer is ignored and load change is initiated immediately. And Stable timer is started for 90 
+seconds (adjustable by administrator). Cycle timer is started after Stable timer elapses.
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 12 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.2.2.  BOG flow contorller (71FIC0 001)  
+Purpose  To maintain the flow rate for re -liquefaction.  
+PV 72FI0001  
+SP From GMS(Auto) or Manual input  
+OP 71FCV0001  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  
+ 
+3.1.2.3.  N2 Compander suction pressure controller (81PIC0 003)  
+Purpose  To maintain the inlet pressure  for N2 compander  
+PV 51PIT011A 
+SP RSP from Pre -set table  
+OP 81XV0002, 81PCV0003 or 81PCV0004 by Split control  
+Acting  Reverse  
+Tracking  - 
+Other  Fail Close 81XV0002, 81PCV0003 and 81PCV0004  
+ 
+ 
+When the compensation is required in re -liquefaction load cont roller, the set point of N2 compander suction 
+pressure controller is added ± 0.1 bar at a time to the pre -set table output.  
+ 
+N2 compander su ction pressure controller 81PIC0 003 controls three valves (81XV0002, 81PCV0003 and 
+81PCV0004) by split range. 81PCV 0003 or 81XV0002 are used for decreasing pressure (0 ~ 50 % of the signal) 
+and 81PCV0004 is used for increasing pressure (50 ~ 100 % of the signal)  
+ 
+While 81PIC0 003 is in auto mode, 81XV0002 must be opened instead of 81PCV0003 when the pressure 
+of N2 expan sion vessel is higher than the discharge pressure of compander 3rd stage. Then, N2 boosting 
+compressor is operated to decrease the pressure of N2 compander suction pressure.  
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 13 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.2.4.  N2 Compander - Expander inlet temperature controller (71TIC0001)   
+Purpose  To ma intain the expander inlet temperature for N2 compander  
+PV 81TE0005  
+SP -130 ℃ (To be adjusted during commissioning)  
+OP 71FCV0001  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  
+ 
+ 
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 14 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.3.  Sequence  
+3.1.3.1.  Start interlock  
+ 
+[Cool -down]  
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started through any ways, sequence or 
+manually. This is listed based on Cryostar documents of ‘SETPOINT LIST’ or ‘Logic Diagrams’.  
+ 
+No. Tag Description  Limit  
+1 51TE14UA  MAIN MOTOR U WINDING TEMP  HIGH  130 
+2 51TE14VA  MAIN  MOTOR V WINDING TEMP  HIGH  130 
+3 51TE14WA  MAIN MOTOR W WINDING TEMP  HIGH  130 
+4 51TE14DA  MAIN MOTOR DE BEARING  TEMP  HIGH  100 
+5 51TE14NA  MAIN MOTOR NDE BEARING  TEMP  HIGH  100 
+6 51PSL14  MAIN MOTOR PURGING UNIT PRESS LOW  LIMIT SWITCH  
+7 51XU91A/B  LO PRESSUR E & GEARBOX TEMP OK  NOT OK  
+8 51XU6  AUX. LUBE OIL PUMP RUNNING  NOT RUNNING  
+9 51ZT0001  N2 CPD START -UP AND TRIP VV STG 1/2 POSITION  NOT OPENED  
+10 51ZT0002  N2 CPD START -UP AND TRIP VV STG 2 POSITION  NOT OPENED  
+11 81PIT0001  N2 CPD INLET PRESS URIZED  3 bar <  < 4bar  
+12 51ZT0010  N2 CPD ALL STG BYPASS VV POS ITION  NOT OPENED  
+13 51ZSH110A  N2 CPD SEAL GAS VV OPENED  NOT OPENED  
+14 51PIT110A  SEAL GAS PRESS FROM BUFFER  LOW  25 
+15 51MAN_OVERRIDE  MANUAL OVERRIDE OF SEAL GAS ON  ON 
+16 51ZT0041  N2 CPD VOV POSITION  HIGH  5 
+17 51SET143  MAIN MOTOR ROTATING  ROTATING  
+18 51PIT0005  LUBE OIL TANK PRESS  HIGH  20 
+19 51LSL0005  LUBE OIL TANK LEVEL  LIMIT SWITCH  
+20 51TE005A  LUBE OIL TANK TEMP  HIGH  75 
+21 51XA62  AUX. LUBE OIL PUMP FAULT  FAULT  
+22 51XU93  RECOVERY FROM THERMAL BOW  ONGOING  
+23 72XV0004_3  N2 H/E BOG INLET ISOLATION VV CLOSED  NOT CLOSED  
+24 51TRIP_COM  N2 CPD COMMON TRIP  TRIP  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 15 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ [Idle mode to Normal mode ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started  for Normal  through any ways, 
+sequence or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_ DEF03  ERS(N) IDLE MODE DE -ACTIVATION  NOT IDLE MODE  
+2 CBLD1/2_CLOSED  BOTH LD COMPRESSOR NOT RUNNING  NOT RUNNING  
+3 8PTFG01  LD COMPRESSOR DISCH PRESS  LOW  9 
+4 81TE0006  N2 H/E N2 INLET TEMP  HIGH  -100 
+5 CL322/422  BOTH CL322 AND CL422 CLOSED  NOT OPENED  
+ 
+[Normal mode to Idle mode ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started  for Idle  through any ways, sequence 
+or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_DEF05  ERS(N) NORMAL MODE DE -ACTIVATION  NOT NORMAL MODE  
+ 
+[Warm and  cold stop ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started  for stop  through any ways, 
+sequence or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_DEF01  ERS(N) STOPPED MODE ACTIVATION  STOPPED MODE  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 16 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.3.2.  Trip  
+ 
+In th e following conditions it is not allowed for N2 comp ander  to be started through any ways, sequence or 
+manually. This is listed based on Cryostar documents of ‘SETPOINT LIST’ or ‘Logic Diagrams’.  
+ 
+No. Tag Description  
+1 51TRIPA  N2 CPD PROCESS TRIP  
+2 51TRIP B N2 CPD LUBE OIL TRIP  
+3 51TRIPC  N2 CPD SEAL&SEPARATIION GAS TRIP  
+4 51TRIPD  N2 CPD GEARBOX TEMP TRIP  
+5 51TRIPE  N2 CPD GEARBOX VIBRATION TRIP  
+6 51TRIPF  N2 CPD MAIN MOTOR TRIP  
+7 51TRIPG  N2 CPD EMS&ESD TRIP  
+8 51TRIPAF  N2 CPD PROCESS SENSOR FAULT TRIP  
+9 51TRIPCF  N2 CPD SEAL&SEPARATIION GAS SENSOR FAULT TRIP  
+10 51TRIPDF  N2 CPD GEARBOX TEMP SENSOR FAULT TRIP  
+11 51TRIPFF  N2 CPD MAIN MOTOR SENSOR FAULT TRIP  
+12 51AS_TRIP  N2 CPD ANTI -SURGE DETECT TRIP  
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 17 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.3.3.  Start sequence  (Cool -down)  
+ 
+ 
+ 
+  N2 compander ready to start  
+Step01, TM(150s), WT (2s)  
+Step02, TM(300s), WT (2s)  
+ 
+Step03, TM(10s), WT (60s)  
+Step02, TM(60s), WT (2s)  
+s) 
+ Step04, TM(100s), WT (N/A)  
+Step05, TM(240), WT (N/A)  
+Step04, TM(250s), WT (100s)  
+ 
+Step06, TM(10s), WT (2s)  
+Step07, TM(N/A), WT (2s)  
+ 
+Step08, TM(N/A), WT (2s)  
+ 
+End of sequence  Set initial condition  
+Start N2 compander EL motor  
+Released AS controller  
+Close 51SCV1/2 with ramp  
+Close 51FCV10 with ramp1  
+Close 51FCV10 with ramp2  
+ 
+Released 51TIC021  
+Released 51FRIC041  
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 18 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  Action  Condition  for next step  
+Step01  51HIC41B (0%)  
+51HY41B IN (0)  
+51HIC41C (0%)  
+51HIC41A (100%)  
+51XIC1 (TRACK, 0%)  
+51XIC2 (TRACK, 0%)  
+51XIC3 (TRACK, 100%)  
+51FRIC10 (TRACK, 100%)  
+51IIC001 (TRACK, 0%)  
+51TIC021 (TRACK, 5%)  
+72XV0004 ( OPEN ) 
+71FIC0001  (TRACK, 0%) 
+71TIC0001 (TRACK, 0%) 
+81PIC0003 (TRACK, 50%)  
+51HIC1 (100%)  
+51HIC2 (100%)  
+51JIC3 (TRACK, 0%)  
+STG1 51SCV1 (ENERGIZE)  
+STG2 51SCV2 (ENERGIZE)  
+STG3 51SCV3 (ENERGIZE)  
+STG10 51FCV10 (ENERGIZE)  51HIC41B (0%)  
+51HY41B IN (0)  
+51HIC41C (0%)  
+51HIC41A ( 100%)  
+51XIC1 (TRACK, 0%)  
+51XIC2 (TRACK, 0%)  
+51XIC3 (TRACK, 100%)  
+51FRIC10 (TRACK, 100%)  
+51IIC001 (TRACK, 0%)  
+51TIC021 (TRACK, 5%)  
+72XV0004 (CLOSE ED) 
+71FCV0001 ( OPENED ) 
+81PIC0003 (TRACK, 50%)  
+51HIC1 (100%)  
+51HIC2 (100%)  
+51JIC3 (TRACK, 0%)  
+STG1 51SCV1 ( ENERG IZED ) 
+STG2 51SCV2 ( ENERGIZED ) 
+STG3 51SCV3 ( ENERGIZED ) 
+STG10 51FCV10 ( ENERGIZED ) 
+TIC041 MANUAL MODE & OP(0%)  
+Step02  START N2 COMPANDER  
+51TIC041(AUTO(E), SP  :1.0) N2 COMPANDER (ENERGIZED)  
+FULL SPEED REACHED (51SET142)  
+TIC041(AUTO(E), SP  :1.0) 
+Step03  51XIC1 (AUTO (E), SP : 0.8) 
+51XIC2  (AUTO (E), SP : 0.8) 
+51XIC2 (AUTO (E), SP : 0.82) 
+51HIC10 (0%)  51XIC1 (AUTO (E), SP : 0.8) 
+51XIC2 (AUTO (E), SP : 0.8) 
+51XIC2 (AUTO (E), SP : 0.82) 
+51HIC10 (0%)  
+Step04  51SCV1 (CLOSE WITH 1%/sec) 
+51SCV2 (CLOSE WITH 1%/sec) 
+81PIC0003  (AUTO(E), SP  : 2) 51SCV 1 (CLOSE D, LESS THAN 5% ) 
+51SCV2 (CLOSE D, LESS THAN 5% ) 
+81PIC0003  (AUTO(E), SP  2) 
+Step05  51FRIC10 (TRACK, 0% RAMP  10%/ min) 
+51TIC041(TRACK,100% RAMP  :3%min) 
+ 51FRIC10 5% 
+51TIC041  (TRACK)  
+51FRI1 < 1.19  
+Step06  51FRIC10 (TRACK, 0% RAMP  : 1.5%/min ) 51FRIC10 3% 
+Step07  51TIC021 (AUTO(E), SP  : -130, RAMP 
+0.5/min ) 51TIC021 (AUTO(E) ) 
+51FRI1 < 1.0  
+Step08  51FRIC41 (AUTO(E), SP  : 1.0) 51FRIC41 (AUTO(E), SP  : 1.0) 
+81TE0006 <= -129 
+ 
+ Start sequence (Cooldown)  
+Active  Start button  from IAS (Remote mode ) 
+Strat request from local panel (Local mode)  
+Interlock  Start interlock conditions. Refer to 3.1.3.1  
+Terminate  Compander tripped  
+Stop sequence activated  
+Operator terminated from IAS  
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 19 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.1.3.4.  Idle to No rmal mode sequence  
+ 
+ 
+ 
+ 
+  ERS(N) ready to Normal  
+Step01, TM(150s), WT (2s)  
+Step02, TM( N/A), WT (600s)  
+ 
+Step03, TM(10000s), WT (600s)   
+Step04,  TM(N/A), WT (2s)  
+Step05, TM(10s), WT (600s)  
+Step04, TM(250s), WT (100s)  
+ 
+End of sequence  N2 H/E BOG line -up 
+Open 71FCV0001 (3%)  
+Released 71TIC0001 & 51TIC021(SP: -160) 
+Released 71FIC0001  
+Released Reliq. Load control  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 20 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  Action  Conditio n for next step  
+Step01  71FIC0001 (TRACK, 0%)  
+71TIC0001 (TRACK, 0%)  
+72XV0004  (OPEN)  71FCV0001 (CLOSED)  
+72XV0004 (OPENED)  
+71PIT0001 >=  9 bar  
+Step02  71FIC0001 (TRACK, 3%) 
+71TIC0001 (TRACK, 5%)  
+ 71FCV0001 (OPENED, < 5%) 
+71TE0001 <= -100 
+Step03  71TIC0001 (AUT O(E), SP  : -130) 
+51TIC021 (AUTO(E), SP  : -160) 71TIC0001 (AUTO(E), SP  : -130) 
+71FCV0001 (OPENED, 20%)  
+ 
+Step04  71FIC0001 (AUTO(E),  SP : 700) 
+51TIC021 (TRACK, 100%)  
+ 71FIC0001 (AUTO(E), SP  : 700) 
+51FRY41A < 51TIC021 OP  
+ 
+Step05  RELIQ. CONTROL (ACTIVE)  
+TIC021( TRACK , OUT  : 100%)  RELIQ . CONTROL (ACTIVATED)  
+TIC021( TRACK , OUT  : 100%)  
+ 
+ Start sequence (Cooldown)  
+Active  Start button  from IAS (Remote mode)  
+Interlock  Start interlock conditions. Refer to 3.1.3.1  
+Terminate  Compander tripped  
+Stop sequence activated  
+Operator terminated from I AS 
+ 
+ 
+3.1.3.5.  Normal to Idle mode sequence  
+ 
+ 
+ 
+ 
+  ERS(N) ready to Idle  
+Step01, TM(N/A), WT (2s)  
+Step02, TM(10000s), WT (2s)  
+ 
+Step03, TM(N/A),  WT (2s)  
+Step02, TM(60s), WT (2s)  
+s) 
+ End of sequence  
+ Load down to min (700kg/h)  
+BOG flow stop with ramp  
+Close 71FCV0001  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 21 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  Action  Condition  for next step  
+Step01  RELIQ. CONTROL ( MANUAL, 700 kg/h ) 71FT0001 <= 700 
+Step02  RELIQ. CONTROL (DE -ACTIVATION)  
+51TIC021 (AUTO(E), SP  : -130) 71FCV0001 (CLOSED , < 2.2 ) 
+51TIC021 (AUTO(E),  SP : -130) 
+81TE0006 > -131 & TRH0017 >= -35 
+Step03  71FIC0001 (TRACK, 0%)  
+71TIC0001 (TRACK, 0%)  71FCV0001 (CLOSED, < 0.8)  
+ 
+ 
+ Start sequence (Cooldown)  
+Active  Start request from IAS (Remote mode)  
+Interlock  Start interlock conditions. Refer to 3.1.3.1  
+Terminate  Compander tripped  
+Stop sequence activated  
+Operator terminated from IAS  
+ 
+ 
+ 
+3.1.3.6.  Normal  (Warm&Cold)  stop / Trip sequence  
+ 
+3.1.3.7.   
+ 
+ 
+  ERS(N) ready to stop  
+Step01, TM(N/A), WT (2s)  
+Step02, TM(300s), WT (2s)  
+ 
+Step03, TM(150s), WT (60s)  
+Step02, TM(60s), WT (2s)  
+s) 
+ Step04, TM(150s), WT (60s)  
+Step05, TM(150s), WT (2s)  
+Step04, TM(250s), WT (100s)  
+ 
+End of sequenc  Warm -up 
+Open 51FCV10 with ramp  
+Stop N2 compander EL motor  Warm stop  
+Cold stop  
+Trip 
+Open 51XV110A&Close 51XV110B  
+Stop N2 compander EL motor  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 22 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  Action  Condition  for next step  
+Step01  71FIC0001 (TRACK, 2 %) 
+71TIC0001 (TRACK, 2 %) 
+72XV0004  (CLOSE ) 
+51TIC021 (AUTO(E), SP  : 40) 
+RELIQ. CONTROL (DE -ACTIVATION)  51DPCV41 (CLOSED, < 5.5%) 
+81TE0006 > 0  
+Step02  51HIC10 (100% WITH 1%/sec ) 
+51FRIC041 (TRACK, LAST VALUE)  
+71FIC0001 (TRACK, 100%)  
+71TIC0001 (TRACK, 100%)  
+72XV0004 (CLOSE)  
+RELIQ. CONTROL (DE -ACTIVATION ) 51HIC10 > 90%  
+Step03  STG1 51SCV1 ( DE-ENERGIZE)  
+STG2 51SCV2 ( DE-ENERGIZE)  
+STG3 51SCV3 ( DE-ENERGIZE)  
+STG10 51FCV10 ( DE-ENERGIZE)  
+N2 COMPANDER ( DE-ENERGIZED)  
+51HIC10 (100%)  
+51FRIC041 (TRACK, LAST VALUE)  
+71FIC0001 (TRACK, 100%)  
+71TIC0001 (TRACK, 100%)  
+72XV0 004 (CLOSE)  
+RELIQ. CONTROL (DE -ACTIVATION)  STG1 51SCV1 ( DE-ENERGIZE D) 
+STG2 51SCV2 ( DE-ENERGIZE D) 
+STG3 51SCV3 ( DE-ENERGIZE D) 
+STG10 51FCV10 ( DE-ENERGIZE D) 
+N2 COMPANDER ( DE-ENERGIZE D) 
+Step04  51XV110A  (DE-ENERGIZE , OPEN ) 
+51XV110B  (DE-ENERGIZE , CLOSE ) 
+71FIC000 1 (AUTO(E), SP  : 500)  
+51TIC021 (TRACK, 5 %) 
+51FRIC041 (TRACK, 0%) 
+51FRIC10 (TRACK, 100%)  
+51IIC001 (TRACK, 0%)  
+51HIC41A (5%)  51XV110A  (DE-ENERGIZE D, OPENED ) 
+51XV110B  (DE-ENERGIZE D, CLOSED ) 
+Step05  51HY41B (100%)  51HY41B (100%)  
+ 
+ Start sequence (Cooldown)  
+Active  Stop button  from IAS (Remote mode)  
+Stop request from local panel (Local mode)  
+Interlock  Stop interlock conditions. Refer to 3.1.3.1  
+Terminate  Operator terminated from IAS  
+ 
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 23 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2. N2 compander  
+The main function of the N2 compander is to compress and e xpand the nitrogen and to supply the nitrogen to 
+N2 heat exchanger in order to re -liquefy surplus BOG.  
+ 
+The nitrogen is first compressed by a radial centrifugal compressor and then cooled -down by passing through 
+a watercooler, where the heat of compression  is rejected. This is successively repeated twice, resulting in a 
+three stage compression with intermediate cooling by fresh water.  
+Inside the turbine the nitrogen is expanded to a low pressure.  
+The turbine and the three compressors stages are integrated  on each side of a single speed shafts mounted on 
+a common gearbox, forming a machine configuration called compander.  
+The compander is operated at a fixed speed.  
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 24 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.  Control  
+3.2.1.1.  Compander load control  
+ 
+3.2.1.1.1.  Compander differential pressure / flow cont roller  (5 1FRIC0 41) 
+ 
+Purpose  To maintain compander differential pressure / flow  
+PV 51FRI1  
+SP 1.0 
+OP 51FRY41A  
+Acting  Reverse  
+Tracking  - 
+Other  Fail close  
+ 
+Compander is load controlled by a differen tial pressure/flow controller 5 1FRIC0 41 controlling the  stages 
+suction “flowrate” during normal operation.  
+ 
+The controller 5 1FRIC0 41 SP is equal to 1.00  
+ 
+The process value of controller 51 FRIC 041 is 51FRI.1/2/3 corresponding to the compander nominal reduced 
+volume flowrate. which is also used for A/S control lers 51XIC1/2/3.  
+ 
+The controller output is se nt to the split range function 51FRY 41A. The output of this function adjusts position 
+of :  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 25 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  
+- the expander nozzles 51 DPCV41 between 0 and 100% for the 0 to 50% part of input sign al of 51FRY 41A 
+(signal which is  then sent in to a low signal selector 51FRY 41E), and  
+ 
+- the expander bypass valve between 0 and 100% for the 50 t o 100% part of input signal of 51FRY 41A (signal 
+which is  then sent into a sum function 51FRY 41D).  
+ 
+Expander nozzles 0% position corresponds t o expander minimum nozzles opening that should be never used 
+in operation. Consequently, a software lim itation is added with function 51HY 41A to ensure that the 5% 
+opening is always maintained, even if the controller command is lower than 5%.  
+ 
+ Expander no zzles 100% is the full opening of nozzles and corresponds to the physical 100% opening.  
+ 
+Bypass valve is open only when expander nozzles are fully open to limit energy wasting.  
+ 
+The low signal selector 51FRY 41E, will select the lowest signal between :  
+- 51HIC 41A, and  
+- 51FRY 41A, and  
+- Customer cooldown controller 51TIC 021 output (used during cooldown/warm -up phases)  
+and sent its output to the expander nozzles 51DPCV 41.  
+ 
+The signal from sum function 51FRY 41D is generated with split range 51 FRY 41A sign al. The sum functions 
+51FRY 41C and D are used  to correct signal issued from 51FRY 41A in case of limitation from Customer 
+cooldown  controller 51TIC021 through 51FRY 41E to anticipate opening of the expander by pass valve 
+81TCV0001 .  
+ 
+The valves 81TCV0001  is fitted with a switch selector 6 1.HY.41 B tha t takes either the signal from 51HIC41B 
+or 51FRY 41D output.  
+ 
+51FRY41C function is = ( 5 1FRY4 1A out – 51FRY41E) - (51HIC41C)  
+The output of 51FRY41C is limited to 0 -100%.  
+ 
+This function allows to anticipate the opening of expander by -pass if needed for load control when 51TIC021 
+is sending lower value than 51FRIC0 41.  
+ 
+3.3.1.1.2.  Compander warm  load control during start -up  (51FRIC 10 ) 
+ 
+When the compander is in warm start up, the load is controlled by its differe ntial pressure/flow controller 
+51FRIC 10, controlling the third stage sucti on flowrate by acting on valve 51FCV 10 opening (ie when 
+compander is in start up phase).  
+ 
+When compa nder is cold, 51FRIC0 41 is taking over  
+ 
+The controller 51FRIC 10 SP is equal to1.1 .  
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 26 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ The process value of controller 51FRIC10 is 51FRI 3 corresponding to the compander nominal reduced volume 
+flowrate . 51FRI 3 is also used for 3rd co mpress ion stage A/S controller 51XIC 3.  
+ 
+The output of 51 FRIC10 is sent to sum function 51XY 10  
+The output signal is used to adjust the valve 515FCV5 10 position.  
+ 
+ 
+3.2.1.1.3. Compande r load limitation controller  (51IIC00 1 ) 
+ 
+Purpose  To protect compander motor from overloading  
+PV N2 compander motor current  
+SP 160 A  
+OP 81PCV0005  
+Acting  Direct  
+Tracking  - 
+Other Fail close  
+ 
+In order to protect Compander motor fr om overloading, the controller 51IIC00 1 will limit the pressure in the 
+N2 loop by reducing the N2 inventory of the loop . This reduction is done by N2 loop emptying valve in 
+Customer scope.  
+ 
+51IIC00 1 process value is equal to the Compander measur ed current 51II00 1 issued from IAS system. The set 
+point is equal to 160 A  
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 27 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.2.  Compander Anti surge control  
+ 
+ 
+Each compressor fitted on compander is protected by its dedicated A/S controller by recycling gas i n case of 
+too low flow. Only one recycling valve 51FCV 10 is provided for the three compression stages. Surge points 
+are programmed into the controllers in order to generate a Control line Setpoint corresponding to minimum 
+required flow of each compression stage (the A/S controllers set point can not be modified by operators).  
+ 
+- First compressor is protected by 51XIC 1 
+- Second stage by 51XIC 2, and  
+- Third stage by 51XIC 3. 
+ 
+The surge controller is the ultimate protect ion considering the controller 51 FRIC0 41 which should keep 
+compressors near design point by controlling compression stages at design flowrate.  
+ 
+Anyway, a cause of approach of surge could be the unexpected diminution of th e process controller 51FRIC0 41 
+output. Consequently, in order to decouple  the effect of the A/S controllers 51XIC 1/2/3 and controller 
+51FRIC041, the controller 51FRIC0 41 output is frozen as soon one A/S controller output becomes higher than 
+10% during 10s. (activated after start -up and de -activated at stop)  
+ 
+One minute later th e controller 51 FRIC041 is switched back in AUTO to its previous set point following a 
+ramp of 0.1 / min (to be confirmed later).  
+ 
+At reduced speed, the first stage and second compressor stages are protected with a dedicated con trol valve 
+(51SCV 1/2). These  valves are open at 100% until the speed -up to full speed of the compander. In order to 
+avoid interference between A/S controllers when these valves are fully open, the safety function and safety 
+trip are not active an d the anti surge controllers 51XIC 1& 2  are forced in Man 0% to inhibit the action of these 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 28 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ controllers on 51FCV 10. (Safety line on stage 1 and 2 is inhibited until valves SCV1/2 are open less than 5 %). 
+Safety line on stage 3 is di s-inhibited when compander is running until 20s.  
+ 
+3.2.1.2.1 . A/S controller of 1st compression stage (51XIC1)  
+ 
+Purpose  To protect compander  from anti-surge.  
+PV 51FRI1 (Reduced flow -rate) 
+SP 0.8 
+OP 51XY10  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  (Anti -surge safety line value  : 0.73) 
+ 
+The controller 51XIC 1 SP is equal to 0.8.  
+ 
+The process value of controller 51XIC1 is 51FRI 1 corresponding to the compander nominal reduced volume 
+flowr ate.  
+ 
+NB : The output of the A/S controller 51XIC 1 (in %) is not se nt directly to the A/S valve 51FCV 10.  
+A sum function 51XY 10 man ipulates the A/S valve, by adding all outputs to get correct opening (from 
+51HIC 10 (in % ) and the other controllers (51XIC.1/2/3 and 51FRIC 10).  
+ 
+In addition to the control line set point, a safety line is defined (during factory test). If 51FRI1  < Safety line , 
+the safety “line” is re ached and the solenoid valve 51SV10 is de -energized in order to have a f ast opening of 
+the A/S valve 51FCV 10. In the same time  the A/S controller override 51HIC 10 is switched to 100%.  
+ 
+Once the valve is fully open PV is highe r than saf ety line, the solenoid valve 51SV10 is re -energized and  the 
+A/S controller override 51HIC 10 is ramped to 0% at a rate of 0.5%/s.  
+ 
+When compander is stopped or not running the ram p down shall not be done and 51HIC 10 shall be maintained 
+to 100%. I f the safety “line” ( 51FRI1  < Safety line ) is still rea ched 3s after solenoid valve 51SV 10 has been 
+de-energized, the compander is tripped,  and the alarm 51AS_TRIP  “N2 CPD ANTI SURGE TRIP ” is 
+generated. This alarm is only active when compander is running ( after cool -down sequence step 4). If A/S 
+valve 51FCV 10 is open more than 2 % for more than 2 s during normal operation and not during sta rt up 
+sequence, an alarm 51XIC1_AS_CHK  “N2 CPD 51XIC1 ANTI SURGE 2% OPEN ” is generated (as it is not 
+a normal mode of operation).  
+ 
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 29 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.2.2 . A/S controller of 2nd compression stage (51XIC2 )  
+ 
+Purpose  To protect compander from anti -surge.  
+PV 51FRI2 (Reduced flow -rate) 
+SP 0.8 
+OP 51XY10  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  (Anti -surge safety line value  : 0.73) 
+ 
+The controller 51XIC2  SP is equal to 0.8.  
+ 
+The process value of controller 51XIC2 is 51FRI2  corresponding to the compander nominal reduced volume 
+flowr ate.  
+ 
+NB : The output of the A/S controller 51XIC2  (in %) is not se nt directly to the A/S valve 51 FCV 10.  
+A sum function 51XY 10 manipulates the A/S valve, by adding all outputs to get correct opening (from 
+51HIC 10 (in % ) and the other controllers (51XIC.1/2/3 and 51FRIC 10).  
+ 
+In addition to the control line set point, a safety line is defined (during f actory test). If 51FRI2  < Safety line  , 
+the safety “line” is re ached and the solenoid valve 51SV10 is de -energized in order to have a f ast opening of 
+the A/S valve 51FCV 10. In the same time  the A/S controller override 51HIC 10 is switched to 100%.  
+ 
+Once th e valve is fully open PV is higher than saf ety line, the solenoid valve 51SV10 is re -energized and  the 
+A/S controller override 51HIC 10 is ramped to 0% at a rate of 0.5%/s.  
+ 
+When compander is stopped or not running the ram p down shall not be done and 51HIC 10 shall be maintained 
+to 100%. If the safety “line” ( 51FRI2  < Safety line ) is still rea ched 3s after solenoid valve 51SV 10 has been 
+de-energized, the compander is tripped,  and the alarm 51AS_TRIP  “N2 CPD ANTI SURGE TRIP ” is 
+generated. This alarm is only a ctive when compander is running ( after cool -down sequence step 4). If A/S 
+valve 51FCV 10 is open more than 2 % for more than 2 s during normal operation and not during sta rt up 
+sequence, an alarm 51XIC2_AS_CHK  “N2 CPD 51XIC2 ANTI SURGE 2% OPEN ” is generate d (as it is not 
+a normal mode of operation).  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 30 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.2.3 A/S controller of 3rd compression stage (51XIC3 )  
+ 
+Purpose  To protect compander from anti -surge.  
+PV 51FRI3 (Reduced flow -rate) 
+SP 0.82 
+OP 51XY10  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  (Anti -surge safety line value  : 0.76) 
+ 
+The controller 51XIC3  SP is equal to 0.8.  
+ 
+The process value of controller 51XIC3 is 51FRI3  corresponding to the compander nominal reduced volume 
+flowr ate.  
+ 
+NB : The output of the A/S controller 51XIC3  (in %) is n ot sent directly to the A/S valve 51FCV 10.  
+A sum function 51XY 10 manipulates the A/S valve, by adding all outputs to get correct opening (from 
+51HIC 10 (in % ) and the other controllers (51XIC.1/2/3 and 51FRIC 10).  
+ 
+In addition to the control line set point , a safety line is defined (during factory test). If 51FRI3  < Safety line  , 
+the safety “line” is re ached and the solenoid valve 51SV10 is de -energized in order to have a f ast opening of 
+the A/S valve 51FCV 10. In the same time  the A/S controller override 51 HIC10 is switched to 100%.  
+ 
+Once the valve is fully open PV is higher than saf ety line, the solenoid valve 51SV10 is re -energized and  the 
+A/S controller override 51HIC 10 is ramped to 0% at a rate of 0.5%/s.  
+ 
+When compander is stopped or not running the r amp down shall not be done and 51HIC 10 shall be maintained 
+to 100%. If the safety “line” ( 51FRI3  < Safety line ) is still rea ched 3s after solenoid valve 51SV 10 has been 
+de-energized, the compander is tripped,  and the alarm 51AS_TRIP  “N2 CPD ANTI SURGE TRIP ” is 
+generated. This alarm is only active when compander is running ( after cool -down sequence step 4). If A/S 
+valve 51FCV 10 is open more than 2 % for more than 2 s during normal operation and not during sta rt up 
+sequence, an alarm 51XIC3_AS_CHK  “N2 CPD 51 XIC3 ANTI SURGE 2% OPEN ” is generated (as it is not 
+a normal mode of operation).  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 31 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.2.4 . N2 Compander A/S controllers override (51HIC10)  
+ 
+Compander A/S va lve 51FCV 10 can be operated independen tly from the A/S controllers 51XIC 1/2/3, by using 
+the ma nual override controller 51HIC 10.  
+ 
+This HIC function allows to open the A/S valve more than the A/S controllers would ask for, but the reverse 
+is not possible. The HIC output is added t o the A/S controllers output 51XIC1/2/3 in a sum function 51XY 10. 
+ 
+ For a 100% HIC output signal, the A/S va lve is fully open. The valve 51FCV 10 is f itted with external 
+enable/disable  function 51HIC 10A that can be switched in external disable  for maintenance only. I f the HIC 
+of the valve is in external disable , the solenoid has to be energized. This function is used to allow the tuning 
+of the valve during maintenance. When the compande r is in remote, the function 51HIC10  is automatically 
+switched in external enable . 
+ 
+3.3.1.2.5  Stage 3 minimum load control and trip valve  (51JIC3 ) 
+ 
+Purpose  To maintain stage 3 minimum load during operation..  
+PV 51JY3  
+SP 120 kW  
+OP 51SCV3  
+Acting  Reverse  
+Tracking  - 
+Other  Fail open  
+ 
+During compande r trip, the common A/S valve 51FCV 10 cannot protect the 3rd compression stage so 51SCV 3 
+is opene d 100%.  
+The valves 51SCV 3 is fitted with Auto/Man function 51 JIC3 that can be switched in Man when the compander 
+is maintenance. If the 51SCV3  of the valve is in Man, the solenoid has to be energized. This function is used 
+to allow the tuning of the valve  during maintenance. When the compande r is in remote, the function 51SCV3  
+is automatically switched in Auto  
+ 
+51SCV 3 will also be used as to keep a minimum load of 120 kW on the pinion ( expander&3rd stage  
+compressor). The Controller 51JIC 3 is the minimum l oad controller between C3 and expander. Its SP is 120kW. 
+The PV =  C3 calculated power – Expander calcul ated power If PV< 120 kW the 51SCV3 is opened by 51.JIC.3.  
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 32 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.3.  Electric main motor control  
+Electric main motor can be controlled through sequences in IAS not in the interlock conditions.  
+ 
+3.2.1.3.1.  Start interlock  
+ 
+[Cool -down]  
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started through any ways, sequence or 
+manually. This is listed based on Cryostar documents of ‘SETPOINT LIST’ or ‘Logic Dia grams’.  
+ 
+No. Tag Description  Limit  
+1 51TE14UA  MAIN MOTOR U WINDING TEMP  HIGH  130 
+2 51TE14VA  MAIN MOTOR V WINDING TEMP  HIGH  130 
+3 51TE14WA  MAIN MOTOR W WINDING TEMP  HIGH  130 
+4 51TE14DA  MAIN MOTOR DE BEARING  TEMP  HIGH  100 
+5 51TE14NA  MAIN MOTOR NDE BEARI NG TEMP  HIGH  100 
+6 51PSL14  MAIN MOTOR PURGING UNIT PRESS LOW  LIMIT SWITCH  
+7 51XU91 A/B LO PRESSURE & GEARBOX TEMP OK  NOT OK  
+8 51XU6  AUX. LUBE OIL PUMP RUNNING  NOT RUNNING  
+9 51ZT0001  N2 CPD START -UP AND TRIP VV STG 1/2 POSITION  NOT OPENED  
+10 51ZT0002  N2 CPD START -UP AND TRIP VV STG 2 POSITION  NOT OPENED  
+11 51ZT0003  N2 CPD START -UP AND TRIP VV STG 3 POSITION  NOT OPENED  
+12 51ZT0010  N2 CPD ALL STG BYPASS VV POSITION  NOT OPENED  
+13 51ZSH110A  N2 CPD SEAL GAS VV OPENED  NOT OPENED  
+14 51PIT110A  SEAL GAS PRESS  FROM BUFFER  LOW  25 
+15 51MAN_OVERRIDE  MANUAL OVERRIDE OF SEAL GAS ON  ON 
+16 51ZT0041  N2 CPD VOV POSITION  HIGH  5 
+17 51SET143  MAIN MOTOR ROTATING  ROTATING  
+18 51PIT0005  LUBE OIL TANK PRESS  HIGH  20 
+19 51LSL0005  LUBE OIL TANK LEVEL  LIMIT SWITCH  
+20 51TE005A  LUBE OIL TANK TEMP  HIGH  75 
+21 51XA62  AUX. LUBE OIL PUMP FAULT  FAULT  
+22 51XU93  RECOVERY FROM THERMAL BOW  ONGOING  
+23 72XV0004_3  N2 H/E BOG INLET ISOLATION VV CLOSED  NOT CLOSED  
+24 51TRIP_COM  N2 CPD COMMON TRIP  TRIP  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 33 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ [Idle mode to Normal mode ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started  for Normal  through any ways, 
+sequence or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_DEF03  ERS(N) IDLE MODE DE -ACTIVATION  NOT IDLE MODE  
+2 CBLD1/2_CLOSED  BOTH LD COMPRESSOR NOT RUNN ING NOT RUNNING  
+3 8PTFG01  LD COMPRESSOR DISCH PRESS  LOW  9 
+4 81TE0006  N2 H/E N2 INLET TEMP  HIGH  -100 
+5 CL322/422  BOTH CL322 AND CL422 CLOSED  NOT OPENED  
+ 
+[Normal mode to Idle mode ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be st arted  for Idle  through any ways, sequence 
+or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_DEF05  ERS(N) NORMAL MODE DE -ACTIVATION  NOT NORMAL MODE  
+ 
+[Warm and cold stop ] 
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started  for st op through any ways, 
+sequence or manually.  
+ 
+No. Tag Description  Limit  
+1 ERS_MODE_DEF01  ERS(N) STOPPED MODE ACTIVATION  STOPPED MODE  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 34 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.3.2.  Trip  
+ 
+In the following conditions it is not allowed for N2 comp ander  to be started through any ways, sequen ce or 
+manually. This is listed based on Cryostar documents of ‘SETPOINT LIST’ or ‘Logic Diagrams’.  
+ 
+No. Tag Description  
+1 51TRIPA  N2 CPD PROCESS TRIP  
+2 51TRIPB  N2 CPD LUBE OIL TRIP  
+3 51TRIPC  N2 CPD SEAL&SEPARATIION GAS TRIP  
+4 51TRIPD  N2 CPD GEARBOX TEM P TRIP  
+5 51TRIPE  N2 CPD GEARBOX VIBRATION TRIP  
+6 51TRIPF  N2 CPD MAIN MOTOR TRIP  
+7 51TRIPG  N2 CPD EMS&ESD TRIP  
+8 51TRIPAF  N2 CPD PROCESS SENSOR FAULT TRIP  
+9 51TRIPCF  N2 CPD SEAL&SEPARATIION GAS SENSOR FAULT TRIP  
+10 51TRIPDF  N2 CPD GEARBOX TEMP SENSOR FAULT TRIP  
+11 51TRIPFF  N2 CPD MAIN MOTOR SENSOR FAULT TRIP  
+12 51AS_TRIP  N2 CPD ANTI -SURGE DETECT TRIP  
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 35 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.4.  Aux. Lube oil pump  control  
+Aux. Lube Oil Pump can be controlled through in IAS manually or automatically not in the interlock 
+conditions.  
+ 
+ 
+3.2.1.4.1.  Start in terlock  
+ 
+No. Tag Description  Limit  
+1 51LSL0005  LUBE OIL TANK LEVEL  LIMIT SWITCH  
+2 
+51TE005A  LUBE OIL TANK TEMP  LOW  25 
+3 HIGH  75 
+4 51PIT110B  SEAL GAS PRESS  AFTER FILTER  LOW  1.75 
+5 51PIT111A  SEPA RATION  INSTRUMENT AIR STG 1 PRESS  HIGH  820 
+6 51PIT111B  SEPA RATION  INSTRUMENT AIR STG 1 PRESS  HH 1000  
+7 51PIT112A  SEPA RATION  INSTRUMENT AIR STG 2 PRESS  HIGH  820 
+8 51PIT112B  SEPA RATION  INSTRUMENT AIR STG 2 PRESS  HH 1000  
+9 51PIT113A  SEPA RATION  INSTRUMENT AIR STG 3 PRESS  HIGH  280 
+10 51PIT113B  SEPA RATION  INSTRUM ENT AIR STG 3 PRESS  HH 1000  
+11 51PDIT110B  SEPA RATION  GAS DIFF PRESS  LOW  200 
+12 51PDIT110C  SEPA RATION  GAS DIFF PRESS  LL 150 
+13 
+51PDIT114A  SEPARATION GAS EXPANDER DIFF PRESS  HIGH  800 
+14 LOW  200 
+15 51XU6  AUX. LUBE OIL PUMP RUNNING  RUNNING  
+16 51XA5  LUB E OIL TANK H EATER OVERLOAD  FAILURE  
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 36 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.4.2.  Start and stop  
+ 
+[Figure1 ] Auto start and stop of Aux. lube oil pump  
+ 
+ 
+3.2.1.4.3.  Lube oil timer  
+ 
+[Figure2 ] LO timer overview  
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 37 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ The timer is monitored in IAS  
+Timer  Value  Description  
+Lube oil pressure timer  1800  sec The timer star ts when the lube oil supply pressure is above the low limit. 
+The timer will need to be elapsed to allow start of the compressor.  
+Gearbox internal temperature 
+maintain timer  1800  sec The timer starts when the gearbox internal temperature is below its high 
+limit and above its low limit.  
+ 
+The timer will need to be elapsed to allow start of the compressor.  
+Lube oil operation maintain 
+timer  30 sec  The timer starts when the lube oil pressure is above the Low limit.  
+ 
+When the timer has elapsed and the ramp up time has completed, the Aux. 
+lube oil pump will be stopped (also in case of standby start due to low lube 
+oil pressure).  
+Coast down timer  90 sec The timer starts when the main motor energized feedback is lost.  
+ 
+During the coast down period Aux. LOP opera tion is forced active to 
+ensure continuous lubrication of the gearbox along the coast down period.  
+Thermal bow recovery timer  1800  sec The timer starts after compressor full mechanical . During the thermal bow 
+recovery period compressor start is interlocke d to ensure thermal bow 
+recovery of the compressor high speed shafts.  
+ 
+The Aux. LOP operation is forced active (excluding stop by EMS, ESD, 
+seal gas pressure too low, lube oil tank level low and lube oil tank 
+temperature too high)  
+Post lubrication contin uation 
+timer  1800  sec The timer starts after compressor full mechanical stop  excluding stop by 
+EMS, ESD, seal gas pressure too low, lube oil tank level low and lube oil 
+tank temperature too high.  
+ 
+During the post lubrication continuation period the Aux. L OP will 
+continue to run. If automatic stop is selected by the operator, the Aux. LOP 
+will automatically be stopped when this timer have elapsed.  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 38 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.5.  Lube oil electric heater  control  
+This is to Maintain the lube oil in the lube oil tank within nominal tempe rature range.  
+ 
+Auto start:  
+Lube oil tank temperature (51TE005A) < 43 degrees.  
+ 
+Auto stop:  
+Lube oil tank temperature (TE5A) > 48 degrees.  
+ 
+The electrical heater is configured to inhibit new start in the conditions:  
+-  Lube oil tank temperature HH (51T E005B)  
+- EMS or ESD (18EPB0001/2, 51ES0001, 51EMS15, 51EMS15IAS)  
+- Oil tank level low (51LSL0005)  
+- Electrical oil heater overload (XA5) [OPTIONAL]  
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 39 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.6.  Seal gas  control  
+Seal gas forced controller during transient state is activated under the  below condi tions.  
+- Main motor stopping for 140sec  
+- Main motor energized for 35sec  
+- Seal gas inlet from compressor stage 3 switch valve for 15sec  
+ 
+Seal gas trip inhibition during transient state is activated under the below conditions  
+- Seal gas forced controller d uring transient state  
+- 51XV110A closed for 15sec  
+ 
+Seal gas PID controller is applied with smooth switch control  
+- When seal gas forced controller during transient state is on, track mode is on and track value is 100%.  
+- When seal gas forced controller dur ing transient state is off, track value is 0% with ramp -down (0.5%)  
+- When 51PDIT0111 > set -point, track mode is off.  
+ 
+3.2.1.6.1  Stage1 seal gas differential pressure controller  (51DPIC1  ) 
+ 
+Purpose  To maintain stage 1 differential pressure..  
+PV 51PDIT0111  
+SP [PIT0012 * 8.16 + 100] mbar (Full speed reached), 12 mbar (Motor not rotating)  
+OP 51DPCV111  
+Acting  Reverse  
+Tracking  Seal gas f orced control ler during transient  state 
+Other  Fail open  
+ 
+ 
+3.2.1.6.2  Stage2 seal gas differential pressure controller  (51DPIC2  ) 
+ 
+Purpose  To maintain stage 2 differential pressure..  
+PV 51PDIT0112  
+SP [PIT0022 * 7.04 + 100]mbar (Full speed reached), 12 mbar (Motor not rotating)  
+OP 51DPCV112  
+Acting  Reverse  
+Tracking  Seal gas f orced control ler during transient  state 
+Other  Fail open  
+ 
+ 
+ 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 40 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.2.1.6.3  Stage3 seal gas differential pressure controller  (51DPIC13 ) 
+ 
+Purpose  To maintain stage 3 differential pressure..  
+PV 51PDIT0113  
+SP [PIT0113 * 12.1 + 100]mbar (Full speed reached), 12 mbar (Motor not rotating)  
+OP 51DPCV113  
+Acting  Reverse  
+Tracking  Seal gas f orced control ler during transient  state 
+Other  Fail open  
+ 
+ 
+3.2.1.6.4  Stage4 seal gas differential pressure controller  (51DPIC4  ) 
+ 
+Purpose  To maintain stage 4 differential pressure..  
+PV 51PDIT0111  
+SP [PIT0014 * 29.1 + 100]mbar (Full speed reached), 12 mbar (Motor not rotating)  
+OP 51DPCV111  
+Acting  Reverse  
+Tracking  Seal gas f orced control ler during transient  state 
+Other  Fail open  
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 41 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+  
+3.3. N2 supply  system  
+The main function of the N2 Booster system is to supply the nitrogen to N2 ex pansion vessel and to support 
+the Hi -ERS(N) operation.  
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 42 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.1.  N2 dryer  
+3.3.1.1.  N2 dryer A tower inlet sol valve (81SV201)  
+The purpose of N2 dryer A tower inlet sol valve is to suppl y N2 to A tower by operating 81SV2 01. N2 dryer 
+A tower inlet pneumatic valve (81SV2 01) is pneumatic on/off valve and position feedback (dry contact) is 
+activated acc ording to open/close status (LS2 01A,  LS201B). N2 dryer A tower inlet sol valve and N2 dryer A 
+tower inlet pneumatic valve are designed to fail close.  
+3.3.1.2.  N2 dryer B tower inlet so l valve (81SV202)  
+The purpose of N2 dryer B tower inlet sol valve is to suppl y N2 to B tower by operating 81SV2 02. N2 dryer 
+B tower inlet pneumatic valve (81SV2 02) is pneumatic on/off valve and position feedback (dry contact) is 
+activated acc ording to open /close status (LS202A, LS2 02B). N2 dryer B tower inlet sol valve and N2 dryer B 
+tower inlet pneumatic valve are designed to fail close.  
+3.3.1.3.  N2 dryer A tower 1st  purge sol valve (81SV203)  
+The purpose of the N2 Dryer A Tower 1st Purge Sol Valve is to reg enerate  A Tower by operating 81SV2 03. 
+N2 dryer A tower 1st pneumatic valve (81SV2 03) is pneumatic on/off valve and position feedback (dry contact) 
+is activated acc ording to open/close status (LS203A, LS2 03B). N2 dryer A tower 1st purge sol valve and N2 
+dryer A to wer 1st purge pneumatic valve are designed to fail close.  
+3.3.1.4.  N2 dryer B tower 1st purge sol valve (81SV204)  
+The purpose of the N2 Dryer B Tower 1st Purge Sol Valve is to reg enerate B Tower by operating 81SV2 04. 
+N2 dryer B tower 1st pneumatic valve (81SV2 04) is pneumatic on/off valve and position feedback (dry contact) 
+is activated acc ording to open/close status (LS204A, LS2 04B). N2 dryer B tower 1st purge sol valve and N2 
+dryer B tower 1st purge pneumatic valve are designed to fail close.  
+3.3.1.5.  N2 dryer A tower 2nd purge sol valve (81SV205)  
+The purpose of the N2 Dryer A Tower 2nd Purge Sol Valve is to r egenerate A Tower by operating 81SV2 05. 
+N2 dryer A  tower 2nd pneumatic valve (81SV2 05) is pneumatic on/off valve and position feedback (dry 
+contact) is activated acc ording to open/close status (LS205A, LS2 05B). N2 dryer A tower 2nd purge sol valve 
+and N2 dryer A tower 2nd purge pneumatic valve are designed to fail close.  
+3.3.1.6.  N2 dryer B tower 2nd purge sol valve (81SV206)  
+The purpose of the N2 Dryer B Tower 2nd Purge Sol Val ve is to r egenerate B Tower by operating 81S V206. 
+N2 drye r B tower 2nd pneumatic valve (81S V206) is pneumatic on/off valve and position feedback (dry 
+contact) is activated acc ording to open/close status (LS206A, LS2 06B). N2 dryer B tower 2nd purge sol valv e 
+and N2 dryer B tower 2nd purge pneumatic valve are designed to fail close.  
+3.3.1.7.  N2 dryer by -pass sol valve (81SV207)  
+The purpose of the N2 Dryer by -pass sol valv e is to return N2 by operating 81S2 107. N2 d ryer by -pass 
+pneumatic valve (81SV2 07) is pneumatic on /off valve and position feedback (dry contact) is activated 
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 43 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ according to open/close status (LS207A, LS2 07B). N2 dryer by -pass sol valve and N2 dryer by -pass pneumatic 
+valve are designed to fail close.  
+3.3.1.8.  N2 dryer N2 supply sol valve (81SV208)  
+The purpose of t he N2 Dryer N2 supply sol valv e is to supply N2 by operating 81SV2 08. N2 dr yer N2 supply 
+pneumatic valve (81SV2 08) is pneumatic on/off valve and position Donghwa Pneutec Design team Page 4 of 
+12 feedback (dry contact) is activated acc ording to open/close s tatus (LS208A, LS2 08B). N2 dryer N2 supply 
+sol valve and N2 dryer N2 supply pneumatic valve are designed to fail close.  
+3.3.1.9.  N2 dryer CH4 sampling sol valve (81SV209)  
+The purpose of the N2 Dryer CH4 sampling sol valve is to measure the amount of CH4 in N2. N2 D ryer CH4 
+sampling sol valve ( 81SV2 09) is solenoid valve. N2 Dryer CH4 sampling sol valve (SV109) is designed to 
+fail close.  
+3.3.1.10.  N2 dryer CO2 & Dew point sampling sol valve (81SV210)  
+The purpose of the N2 Dryer CO2 & Dew point sampling sol valve is to measure t he amount of CO2 & O2 in 
+N2. N2 Dryer CO2 & Dew point sampling sol valve ( 81SV2 10) is solenoid valve. N2 Dryer CO2 & D ew point 
+sampling sol valve (81SV2 10) is designed to fail close.  
+ 
+ 
+3.3.2.  N2 boosting compressor  
+3.3.2.1.  N2 booster unloading valve (81SV101)  
+The purpose  of the N2 booster unload valve is to reduce the load on the N2 Booster by reducing the amount 
+of N2 compression.  N2 booster unloading valve (81SV1 01) is 3 -way solenoid valve. N2 booster unloading 
+valve is designed to fail to loading position . 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 44 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.3.  Control  
+3.3.3.1.  N2 discharge pressure control of N2 boosting compressor  
+Purpose  To maintain the N2 discharge pressure of N2 boosting compressor  
+PV 81PIT103  
+SP Loading pressure : 29 barg (SP01)  
+Unloading pressure : 30 barg (SP02)  
+- SP01 ≥ PV: 81SV101 de -activation (Loadin g operation)  
+- SP02 ≤ PV: 81SV101 activation (Unloading operation)  
+OP 81SV101  
+Acting  - 
+Tracking  - 
+Other  - 
+ 
+3.3.3.2.  N2 regeneration temperature control of N2 dryer  
+Purpose  To maintain the temperature of N2 regeneration flow  
+PV 81TCT201  
+SP Heater on : 210 ℃ (SP03)  
+Heater off : 230 ℃ (SP04)  
+OP EH-101 
+Acting  - 
+Tracking  - 
+Other  - 
+ 
+3.3.3.3.  N2 supply control of N2 dryer  
+Purpose  To supply N2 that satisfies the reference specification (Dew point & CO2)  
+PV 81DT201  
+SP Dew point  meter : -77 ℃ (SP05)   
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 45 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ OP 81SV207 & 81SV20 8 
+Acting  - 
+Tracking  - 
+Other  - 
+ 
+3.3.3.4.  Tower change control of N2 dryer  
+- Time control  
+Purpose  To regenerate the stand -by tower to maintain the adsorbent in a dry state.  
+PV Heater run time  
+SP Heating time : 9,000  sec. (SP07)  
+OP Tower change (Valve on / off control)  
+Acting  - 
+Tracking  - 
+Other  - 
+ 
+- Temperature  control  
+Purpose  To regenerate the stand -by tower to maintain the adsorbent in a dry state.  
+PV 81TT203 / 81TT204  
+SP Cooling complete temperature : 45 ℃ (SP10 ) 
+OP Tower change (Valve on / off control)  
+Acting  - 
+Tracking  - 
+Other  - 
+ 
+3.3.3.5.  N2 boosting compressor  inlet pressure control (81PIC0001)   
+Purpose  To maintain the inlet pressure to N2 boosting compressor  
+PV 81PIT0001  
+SP 3 bara  
+OP 81PCV0001  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 46 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ Acting  Reverse  
+Tracking  - 
+Other  Fail close  
+ 
+3.3.3.6.  N2 buffer tank pressure control (81PIC0002)   
+Purpose  To maintain the pressure inside buffer tank  
+PV 82PIT000 1  
+SP 30 bara  
+OP 81PCV0002  
+Acting  Direct  
+Tracking  - 
+Other  Fail close  
+ 
+3.3.3.7.  N2 expansion vessel pressure co ntrol (82PIC0001)   
+Purpose  To maintain the pressure inside expansion vessel  
+PV 82PIT000 2 
+SP 35 bara  
+OP 82PCV0001  
+Acting  Direct  
+Tracking  - 
+Other  Fail close  
+ 
+3.3.3.8.  N2 compander suction pressure control (81PIC0005)   
+Purpose  To vent the suction pressure of N2  compander  
+PV 81PIT0001  
+SP 5 bara  
+OP 81PCV0005  
+Acting  Direct  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 47 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ Tracking  - 
+Other  Fail close  
+ 
+ 
+3.3.3.9.  Trip  
+In the following conditions the N2 boosting compressor will be tripped and  not allowed to be started through 
+any ways, sequence or manually.  
+ 
+No. Tag Description  Limit  
+1 81TIT101  N2 SUCTION TEMP  HH 60 
+2 81TIT103  2ND DELIVERY BUFFER TK TEMP  HH 190 
+3 
+81PIT101  1ST SUCTION BUFFER TK PRESS  HH 9 / 5
+4  L L  0
+5 81PIT102 2ND SUCTION BUFFER TK PRESS HH 14
+6 81PIT103 N2 DISCH PRESS HH 32
+7
+81PIT104 LUBRICANT OIL PRESSHH 8 
+8 LL 1.5 
+9 81PIT108  INSTRUMENT AIR PRESS  LL 5 
+10 81TH201  N2 DRYER ELEC HEATER TEMP  HH 270 
+11 81EMS15IAS  N2 SUPPLY SYSTEM EMCY STOP FROM IAS  ACTIVATION  
+12 ES0001  N2 COMPANDER TRIP FROM ESD  ACTIVATION  
+13 EPB0001  EMCY STOP  ACTIVATION  
+14 EPB0002  EMCY STOP  ACTIVATION  
+15 RL_GSP42_7  N2 BOOSTING COMPRESSOR ABNORMAL  ALARM  
+ 
+ 
+ 
+  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 48 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.4.  Sequence  
+Start/stop location (LOP, starter panel, IAS) can be selected on the IAS. Only one location from among LOP, 
+starter panel, and IAS shall be selected.  
+ 
+When LOP  is selected in the IAS, N2 booster system(N2 Boosting compressor & N2 dryer) can be 
+started/stopped in LOP. When starter panel is selected in the IAS, N2 booster system(N2 Boosting compressor 
+& N2 dryer) can be started/stopped in starter panel.  
+ 
+When IAS  is selected in the IAS, N2 booster system(N2 Boosting compressor & N2 dryer) can be 
+started/stopped in IAS. Can not be changed the start location during the operation.  
+ 
+In Auto mode the start sequence is activated  automatically in the following cases (OR)  : 
+-81XV0002 fully opened  
+-82PIT0002 < 7.5 bar  
+-82PIT0001 < 26 bar  
+ 
+In Auto mode the stop sequence is activated automatically in the following cases(AND) :  
+-81XV0002 fully closed  
+-82PIT0002 > 9.0 bar  
+-82PIT0001 > 29.5 bar  
+-N2 Commander(Stopped mode)  and XV110A fully c losed  
+ 
+ 
+EM’CY stop is possible regardless of mode.  
+ 
+Time control mode and temperature control mode can be selected on IAS. Only one mode shall be selected.  
+ 
+Before starting the N2 booster system, the following setting value shall be entered in IAS.  
+ -
+ Local / remote mode selection
+- Control mode selection (Time control mode or temperature control mode)
+- SP01 : Set point of loading pressure (29bar.g)
+- SP02 : Set point of unloading pressure (30bar.g)
+- SP03 : Set point of heater on temperature (210 ℃)
+- SP04 : Set point of heater off temperature (230 ℃)
+- SP05 : Set point of dew point (-80 ℃ at ATM / -57 ℃ at 29bar)
+- SP07 : Set point of heating time (9,000 sec)
+- SP10 : Set point of cooling complete temperature
+- Alarm & trip set point & time delay
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 49 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.4.1.  Start sequence  
+ 
+ 
+ 
+ 
+  N2 boosting system  
+Ready to start  
+IAS or Local (LOP)  
+Start request  
+ 
+Set auto mode  
+All valves de -energized  
+Unloading command  
+(81SV101 Activation)  
+ N 
+Y 
+N2 boosting compressor  
+Start 
+ 
+Tower controller activation  No trip 
+End of sequence  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 50 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.4.2.  Tower control sequence  
+ 
+ 
+ 
+  Set auto mode  
+Open 81SV207  
+Open 81SV201&Close 
+81SV202  
+Open 81SV206/209/210  
+Open 81SV2 04 
+N2 supply/heater ctrl ON  
+N2 heater ctrl OFF  
+Cooling & Regeneration  
+Close 81SV204/206  
+Set tower change (A to B)  Open 81SV201&Close 
+81SV202  
+Open 81SV206/209/210  
+Open 81SV204  
+N2 supply/heater ctrl ON  
+N2 heater ctrl OFF  
+Cooling & Regeneration  
+Close 81SV204/206  
+Set tower change (A to B)  
+HD HSHI
+Hyundai Intelligent Control & Integrated System (HiCONiS)  
+Economical Re -liquefaction System(Nitrogen)  
+Functional  Design  Specification  Document Number  
+SHHS -8196 -FD-008 
+Revision: As built  
+Date: 25-Sep-2024  
+Page 51 of 51 
+ 
+ 
+This document is the property of HGS. It must not be stored, reproduced or disclosed to others without written authorisation from HGS. 
+ 3.3.4.3.  Stop sequence  
+ 
+ 
+N2 boosting system  
+Stop sequence  
+Set auto mode  
+SV101/V201/202/203/204/205  
+/206/207/208/209/210  
+De-activation (Close command)  
+ Trip condi tion 
+N2 boosting compressor / Heater  
+Stop 
+ IAS or Local (LOP)  
+Stop request  
+HD HSHI
+ACTION
+Trip (note1)
+Open
+Close
+Open
+Close
+Trip0001
+0004
+0001
+0002
+101FCV
+XV
+XV
+XV
+MT71
+72
+81
+81
+81
+REMARKS
+No. DESCRIPTION ACTION SETPOIT DELAY TIME
+System
+1N2 CPD TRIP FROM FC81 51 ES 0001 Active Active X X X X X X
+2HI-ERS(N) EMCY STOP A 18 EPB 0001 Active Active X X X X X X
+3HI-ERS(N) EMCY STOP B 18 EPB 0002 Active Active X X X X X X
+4LD COMPRESSOR NOT RUNNING DURING NORMAL MODE Active Active X X X X
+BOG Stream
+5N2 H/E INLET PRESS (LNG) 72 PIT 0002 HH 14 bar 5s X X X X
+6N2 H/E INLET TEMP (BOG) 72 TE 0002 HH 55 ℃ X X X X
+N2 Compander
+7N2 CPD LOCAL EMCY STOP 51 EMS 15 Active Active X X X X
+8EM'CY STOP BUTTON FROM IAS 51 EMS 15IAS Active Active X X X X
+9N2 CPD STG 1 DIFF PRESS OF STRAINER 51 PDIT 001A HH 900 mbar X X X X
+10N2 CPD STG 1 DIFF PRESS OF STRAINER 51 PDIT 001A Fault Active X X X X
+11N2 CPD STG 1 INLET TEMP B 51 TE 0011B LL -25 ºC X X X X
+12N2 CPD STG 1 INLET TEMP B 51 TE 0011B Fault Active X X X X
+13N2 CPD STG 1 SUCTION PRESS B 51 PIT 011B LL 0.7 bar X X X X
+14N2 CPD STG 1 SUCTION PRESS B 51 PIT 011B Fault Active X X X X
+15N2 CPD STG 1 DISCH PRESS 51 PIT 0012CW LL 0 bar Soft I/O (note: 51PIT0012 - 81PTFC01 < 0 BAR), No Trip Only Alarm
+16N2 CPD STG 1 DISCH PRESS 51 PIT 0012 Fault Active X X X X
+17N2 CPD STG 1 DISCH TEMP B 51 TE 012B HH 130 ºC X X X X
+18N2 CPD STG 1 DISCH TEMP B 51 TE 012B Fault Active X X X X
+19N2 CPD STAGE 2 DISCH TEMP B 51 TE 022B HH 130 ºC X X X X
+20N2 CPD STAGE 2 DISCH TEMP B 51 TE 022B Fault Active X X X X
+21N2 CPD STAGE 3 DISCH TEMP B 51 TE 032B HH 130 ºC X X X X
+22N2 CPD STAGE 3 DISCH TEMP B 51 TE 032B Fault Active X X X X
+23N2 CPD PROCESS GAS DISCH PRESS HH 51 PIT 033B HH 40 bar X X X X
+24N2 CPD PROCESS GAS DISCH PRESS HH 51 PIT 033B Fault Active X X X X
+25N2 CPD PROCESS GAS DISCH PRESS HH 51 PIT 033C HH 40 bar X X X X
+26N2 CPD PROCESS GAS DISCH PRESS HH 51 PIT 033C Fault Active X X X X
+27N2 CPD EXPANDER DIFF PRESS OF STRAINER B 51 PDIT 002B HH 900 mbar X X X XBOG INLET OPEN/SHUT V/VLIQUEFIED BOG TANK RETURN CTRL V/V
+TAG NUMBERCAUSE
+TAG NUMBER
+CAUSE AND EFFECT CHART
+note1:  51SCV0001, 51SCV0002, 52SCV0003 and 51FCV0010 to be opened, and the motor of N2 compander to be tripped.
+EFFECT
+DESCRIPTION
+N2 BOOSTING COMPRESSORN2 LOOP SETTLE OUT OPEN/SHUT V/VN2 SUPPLY OPEN/SHUT V/VN2 Compander
+HD HSHI
+ACTION
+Trip (note1)
+Open
+Close
+Open
+Close
+Trip0001
+0004
+0001
+0002
+101FCV
+XV
+XV
+XV
+MT71
+72
+81
+81
+81
+REMARKS
+No. DESCRIPTION ACTION SETPOIT DELAY TIME
+BOG INLET OPEN/SHUT V/VLIQUEFIED BOG TANK RETURN CTRL V/V
+TAG NUMBERCAUSE
+TAG NUMBER
+CAUSE AND EFFECT CHART
+note1:  51SCV0001, 51SCV0002, 52SCV0003 and 51FCV0010 to be opened, and the motor of N2 compander to be tripped.
+EFFECT
+DESCRIPTION
+N2 BOOSTING COMPRESSORN2 LOOP SETTLE OUT OPEN/SHUT V/VN2 SUPPLY OPEN/SHUT V/VN2 Compander
+28N2 CPD EXPANDER DIFF PRESS OF STRAINER B 51 PDIT 002B Fault Active X X X X
+N2 Compander Oil System
+29N2 CPD LO TANK TEMP B 51 TE 005B HH 80 ºC X X X X
+30N2 CPD OIL TANK LEVEL LOW 51 LSLL 0005 LL Active 20s X X X X 51LSL0005: Trip (51LSLL0005) to be activated after 20s, 
+31N2 CPD RUPTURE DISC 51 PSE 0005 HH Active X X X X
+32N2 CPD GB LO PRESS L REAPTED 51 PALX 0008 L 1.6 bar X X X X Trip to be occurred once the low press alarm (51PIT0008) is repeated. (4 times), Added
+33N2 CPD GEARBOX LUBE OIL PRESS LL 51 PSLL 0008 LL Active X X X X
+N2 Compander Seal Gas
+34N2 CPD SEAL GAS DIFF PRESS STG 1 51 PDIT 0111 LL 85 mbar X X X X Set point of LL is 85 mbar once main motor full speed is reached. (rpm > 3500)
+35N2 CPD SEAL GAS DIFF PRESS STG 1 51 PDIT 0111 LL 6 mbar X X X X Set point of LL is 6 mbar once main motor rotation is detected. (rpm < 50)
+36N2 CPD SEAL GAS DIFF PRESS STG 1 51 PDIT 0111 Fault Active X X X X
+37N2 CPD SEAL GAS DIFF PRESS STG 2 51 PDIT 0112 LL 85 mbar X X X X Set point of LL is 85 mbar once main motor full speed is reached. (rpm > 3500)
+38N2 CPD SEAL GAS DIFF PRESS STG 2 51 PDIT 0112 LL 6 mbar X X X X Set point of LL is 6 mbar once main motor rotation is detected. (rpm < 50)
+39N2 CPD SEAL GAS DIFF PRESS STG 2 51 PDIT 0112 Fault Active X X X X
+40N2 CPD SEAL GAS DIFF PRESS STG 3 51 PDIT 0113 LL 85 mbar X X X X Set point of LL is 85 mbar once main motor full speed is reached. (rpm > 3500)
+41N2 CPD SEAL GAS DIFF PRESS STG 3 51 PDIT 0113 LL 6 mbar X X X X Set point of LL is 6 mbar once main motor rotation is detected. (rpm < 50)
+42N2 CPD SEAL GAS DIFF PRESS STG 3 51 PDIT 0113 Fault Active X X X X
+43N2 CPD SEAL GAS DIFF PRESS EXPANDER 51 PDIT 0114 LL 85 mbar X X X X Set point of LL is 85 mbar once main motor full speed is reached. (rpm > 3500)
+44N2 CPD SEAL GAS DIFF PRESS EXPANDER 51 PDIT 0114 LL 6 mbar X X X X Set point of LL is 6 mbar once main motor rotation is detected. (rpm < 50)
+45N2 CPD SEAL GAS DIFF PRESS EXPANDER 51 PDIT 0114 Fault Active X X X X
+N2 Compander Seperation Instrument Air
+46N2 CPD SEPA IA DIFF PRESS COMP TRIP 51 PDIT 110B LL 100 mbar X X X X
+47N2 CPD SEPA IA DIFF PRESS COMP TRIP 51 PDIT 110B Fault Active X X X X
+48N2 CPD GB SEPA IA PRESS STG 1 TRIP 51 PIT 111B LL 100 mbar X X X X
+49N2 CPD GB SEPA IA PRESS STG 1 TRIP 51 PIT 111B HH 1000 mbar X X X X
+50N2 CPD GB SEPA IA PRESS STG 1 TRIP 51 PIT 111B Fault Active X X X X
+51N2 CPD GB SEPA IA PRESS STG 2 TRIP 51 PIT 112B LL 100 mbar X X X X
+52N2 CPD GB SEPA IA PRESS STG 2 TRIP 51 PIT 112B HH 1000 mbar X X X X
+53N2 CPD GB SEPA IA PRESS STG 2 TRIP 51 PIT 112B Fault Active X X X X
+54N2 CPD GB SEPA IA PRESS STG 3 TRIP 51 PIT 113B LL 100 mbar X X X X
+HD HSHI
+ACTION
+Trip (note1)
+Open
+Close
+Open
+Close
+Trip0001
+0004
+0001
+0002
+101FCV
+XV
+XV
+XV
+MT71
+72
+81
+81
+81
+REMARKS
+No. DESCRIPTION ACTION SETPOIT DELAY TIME
+BOG INLET OPEN/SHUT V/VLIQUEFIED BOG TANK RETURN CTRL V/V
+TAG NUMBERCAUSE
+TAG NUMBER
+CAUSE AND EFFECT CHART
+note1:  51SCV0001, 51SCV0002, 52SCV0003 and 51FCV0010 to be opened, and the motor of N2 compander to be tripped.
+EFFECT
+DESCRIPTION
+N2 BOOSTING COMPRESSORN2 LOOP SETTLE OUT OPEN/SHUT V/VN2 SUPPLY OPEN/SHUT V/VN2 Compander
+55N2 CPD GB SEPA IA PRESS STG 3 TRIP 51 PIT 113B HH 1000 mbar X X X X
+56N2 CPD GB SEPA IA PRESS STG 3 TRIP 51 PIT 113B Fault Active X X X X
+N2 Compander Separation Gas
+57N2 CPD SEPA GAS DIFF PRESS EXPANDER TRIP 51 PDIT 114B LL 100 mbar X X X X
+58N2 CPD SEPA GAS DIFF PRESS EXPANDER TRIP 51 PDIT 114B Fault Active X X X X
+59N2 CPD GB SEPA GAS PRESS EXPANDER TRIP 51 PIT 114B LL 100 mbar X X X X
+60N2 CPD GB SEPA GAS PRESS EXPANDER TRIP 51 PIT 114B HH 1000 mbar X X X X
+61N2 CPD GB SEPA GAS PRESS EXPANDER TRIP 51 PIT 114B Fault Active X X X X
+N2 Compander Main Motor
+62N2 CPD DE BEARING TEMP HH 51 TE 14DB HH 105 ºC X X X X
+63N2 CPD DE BEARING TEMP HH 51 TE 14DB Fault Active X X X X
+64N2 CPD ND END BEARING TEMP HH 51 TE 14NB HH 105 ºC X X X X
+65N2 CPD ND END BEARING TEMP HH 51 TE 14NB Fault Active X X X X
+66N2 CPD U WINDING TEMP HH 51 TE 14UB HH 135 ºC X X X X
+67N2 CPD U WINDING TEMP HH 51 TE 14UB Fault Active X X X X
+68N2 CPD V WINDING TEMP HH 51 TE 14VB HH 135 ºC X X X X
+69N2 CPD V WINDING TEMP HH 51 TE 14VB Fault Active X X X X
+70N2 CPD W WINDING TEMP HH 51 TE 14WB HH 135 ºC X X X X
+71N2 CPD W WINDING TEMP HH 51 TE 14WB Fault Active X X X X
+72N2 CPD MOTOR COOLING LEAKAGE LEVEL HH 51LSHH 14 HH Active X X X X
+73N2 CPD MOTOR PURGING L PRESS TRIP 51 PSLL 14 LL Active X X X X
+N2 Compander Gear Box
+74N2 CPD GB L SPD SHAFT NDE AXIAL BRG TEMP B 51 TE 090B HH 125 ºC X X X X
+75N2 CPD GB L SPD SHAFT NDE AXIAL BRG TEMP B 51 TE 090B Fault Active X X X X
+76N2 CPD GB L SPD SHAFT NE AXIAL BRG TEMP B 51 TE 090D HH 125 ºC X X X X
+77N2 CPD GB L SPD SHAFT NE AXIAL BRG TEMP B 51 TE 090D Fault Active X X X X
+78N2 CPD GB L SPD SHAFT NDE RADIAL BRG TEMP B 51 TE 090F HH 125 ºC X X X X
+79N2 CPD GB L SPD SHAFT NDE RADIAL BRG TEMP B 51 TE 090F Fault Active X X X X
+80N2 CPD GB L SPD SHAFT RADIAL BRG TEMP B 51 TE 090H HH 125 ºC X X X X
+81N2 CPD GB L SPD SHAFT RADIAL BRG TEMP B 51 TE 090H Fault Active X X X X
+HD HSHI
+ACTION
+Trip (note1)
+Open
+Close
+Open
+Close
+Trip0001
+0004
+0001
+0002
+101FCV
+XV
+XV
+XV
+MT71
+72
+81
+81
+81
+REMARKS
+No. DESCRIPTION ACTION SETPOIT DELAY TIME
+BOG INLET OPEN/SHUT V/VLIQUEFIED BOG TANK RETURN CTRL V/V
+TAG NUMBERCAUSE
+TAG NUMBER
+CAUSE AND EFFECT CHART
+note1:  51SCV0001, 51SCV0002, 52SCV0003 and 51FCV0010 to be opened, and the motor of N2 compander to be tripped.
+EFFECT
+DESCRIPTION
+N2 BOOSTING COMPRESSORN2 LOOP SETTLE OUT OPEN/SHUT V/VN2 SUPPLY OPEN/SHUT V/VN2 Compander
+82 N2 CPD GB H SPD SHAFT STG 1 RADIAL BRG TEMP B 51 TE 091B HH 125 ºC 
+83 N2 CPD GB H SPD SHAFT STG 1 RADIAL BRG TEMP B 51 TE 091B Fault Active 
+84 N2 CPD GB H SPD SHAFT STG 2 RADIAL BRG TEMP B 51 TE 092B HH 125 ºC 
+85 N2 CPD GB H SPD SHAFT STG 2 RADIAL BRG TEMP B 51 TE 092B Fault Active 
+86 N2 CPD GB H SPD SHAFT STG 3 RADIAL BRG TEMP B 51 TE 093B HH 125 ºC 
+87 N2 CPD GB H SPD SHAFT STG 3 RADIAL BRG TEMP B 51 TE 093B Fault Active 
+88 N2 CPD GB H SPD SHAFT EXPANDER RADIAL BRG TEMP B 51 TE 094B HH 125 ºC 
+89 N2 CPD GB H SPD SHAFT EXPANDER RADIAL BRG TEMP B 51 TE 094B Fault Active 
+90 N2 CPD STG 1 RADIAL DISPLACEMENT X AXIS 51 XE 0091 HH RPM>S3(3500)
+91 N2 CPD STG 1 RADIAL DISPLACEMENT X AXIS 51 XE 0091 HHH 
+92 N2 CPD STG 1 RADIAL DISPLACEMENT Y AXIS 51 YE 0091 HH RPM>S3(3500) 
+93 N2 CPD STG 1 RADIAL DISPLACEMENT Y AXIS 51 YE 0091 HHH 
+94 N2 CPD STG 2 RADIAL DISPLACEMENT X AXIS 51 XE 0092 HH RPM>S3(3500) 
+95 N2 CPD STG 2 RADIAL DISPLACEMENT X AXIS 51 XE 0092 HHH 
+96 N2 CPD STG 2 RADIAL DISPLACEMENT Y AXIS 51 YE 0092 HH RPM>S3(3500) 
+97 N2 CPD STG 2 RADIAL DISPLACEMENT Y AXIS 51 YE 0092 HHH 
+98 N2 CPD STG 3 RADIAL DISPLACEMENT X AXIS 51 XE 0093 HH RPM>S3(3500) 
+99 N2 CPD STG 3 RADIAL DISPLACEMENT X AXIS 51 XE 0093 HHH 
+100 N2 CPD STG 3 RADIAL DISPLACEMENT Y AXIS 51 YE 0093 HH RPM>S3(3500) 
+101 N2 CPD STG 3 RADIAL DISPLACEMENT Y AXIS 51 YE 0093 HHH 
+102 N2 CPD EXPANDER RADIAL DISPLACEMENT X AXIS 51 XE 0094 HH RPM>S3(3500) 
+103 N2 CPD EXPANDER RADIAL DISPLACEMENT X AXIS 51 XE 0094 HHH 
+104 N2 CPD EXPANDER RADIAL DISPLACEMENT Y AXIS 51 YE 0094 HH RPM>S3(3500) 
+105 N2 CPD EXPANDER RADIAL DISPLACEMENT Y AXIS 51 YE 0094 HHH 
+N2 Heat Exchanger
+106 N2 H/E SURFACE TEMP B (BOTTOM) 81 TR 0013 HH * remark 3s Soft I/O, * Temperature changing rate is 5 /min or higher
+107 N2 H/E SURFACE TEMP B (BOTTOM) 81 TR 0013 LL * remark 3s Soft I/O, * Temperature changing rate is - 5 /min or lower 
+108 N2 H/E SURFACE TEMP B (MPN OUTLET) 81 TR 0015 HH * remark 3s Soft I/O, * Temperature changing rate is 5 /min or higher 
+109 N2 H/E SURFACE TEMP B (MPN OUTLET) 81 TR 0015 LL * remark 3s Soft I/O, * Temperature changing rate is - 5 /min or lower 
+110 N2 H/E SURFACE TEMP B (CENTER) 81 TR 0017 HH * remark 3s Soft I/O, * Temperature changing rate is 5 /min or higher 
+111 N2 H/E SURFACE TEMP B (CENTER) 81 TR 0017 LL * remark 3s Soft I/O, * Temperature changing rate is - 5 /min or lower 
+112 N2 H/E SURFACE TEMP B(TOP) 81 TR 0019 HH * remark 3s Soft I/O, * Temperature changing rate is 5 /min or higher600s600s
+600s
+600s
+600s
+600s600s
+600s
+600s600s
+HD HSHI
+ACTION
+Trip (note1)
+Open
+Close
+Open
+Close
+Trip0001
+0004
+0001
+0002
+101FCV
+XV
+XV
+XV
+MT71
+72
+81
+81
+81
+REMARKS
+No. DESCRIPTION ACTION SETPOIT DELAY TIME
+BOG INLET OPEN/SHUT V/VLIQUEFIED BOG TANK RETURN CTRL V/V
+TAG NUMBERCAUSE
+TAG NUMBER
+CAUSE AND EFFECT CHART
+note1:  51SCV0001, 51SCV0002, 52SCV0003 and 51FCV0010 to be opened, and the motor of N2 compander to be tripped.
+EFFECT
+DESCRIPTION
+N2 BOOSTING COMPRESSORN2 LOOP SETTLE OUT OPEN/SHUT V/VN2 SUPPLY OPEN/SHUT V/VN2 Compander
+113 N2 H/E SURFACE TEMP B(TOP) 81 TR 0019 LL * remark 3s Soft I/O, * Temperature changing rate is - 5 /min or lower
+114 N2 H/E SURFACE TEMP B (BOTTOM) 81 TRH 0013 HH * remark 3s Soft I/O, * Temperature changing rate is 60 /hour or higher
+115 N2 H/E SURFACE TEMP B (BOTTOM) 81 TRH 0013 LL * remark 3s Soft I/O, * Temperature changing rate is -60 /hour or lower
+116 N2 H/E SURFACE TEMP B (MPN OUTLET) 81 TRH 0015 HH * remark 3s Soft I/O, * Temperature changing rate is 60 /hour or higher
+117 N2 H/E SURFACE TEMP B (MPN OUTLET) 81 TRH 0015 LL * remark 3s Soft I/O, * Temperature changing rate is -60 /hour or lower
+118 N2 H/E SURFACE TEMP B (CENTER) 81 TRH 0017 HH * remark 3s Soft I/O, * Temperature changing rate is 60 /hour or higher
+119 N2 H/E SURFACE TEMP B (CENTER) 81 TRH 0017 LL * remark 3s Soft I/O, * Temperature changing rate is -60 /hour or lower
+120 N2 H/E SURFACE TEMP B(TOP) 81 TRH 0019 HH * remark 3s Soft I/O, * Temperature changing rate is 60 /hour or higher
+121 N2 H/E SURFACE TEMP B(TOP) 81 TRH 0019 LL * remark 3s Soft I/O, * Temperature changing rate is -60 /hour or lower
+N2 Boosting Compressor and Dryer
+122 N2 COMP SUCTION TEMP 81 TIT 101 HH 60 3s
+123 N2 COMP 1ST SUCTION BUFFER TK PRESS 81 PIT 101 HH 5 bar 30s
+124 N2 COMP 1ST SUCTION BUFFER TK PRESS 81 PIT 101 LL 0 bar 30s
+125 N2 COMP 2ND SUCTION BUFFER TK PRESS 81 PIT 102 HH 14 bar 30s
+126 N2 COMP 2ND DELIVERY BUFFER TK TEMP 81 TIT 103 HH 190 3s
+127 N2 COMP DISCH PRESS 81 PIT 103 HH 32 bar 30s
+128 N2 COMP LO PRESS 81 PIT 104 HH 8 bar 3s
+129 N2 COMP LO PRESS 81 PIT 104 LL 1.5 bar 3s
+130 N2 COMP INSTRUMENT AIR PRESS 81 PIT 108 LL 5 bar 3s
+131 N2 DRYER ELETRIC HEATER TEMP 81 TH 201 HH 270 3s
+132 N2 SUPPLY SYSTEM EMERGENCY STOP FROM IAS 81 EMS 15IAS Active Active
+133 N2 BOOSTING COMPRESSOR (N2 COMPANDER) ABN RN 1GSP 42 Active Active600s
+600s
+600s600s
+600s
+600s600s
+600s600s
+9 / 5 bar
+HD HSHI
