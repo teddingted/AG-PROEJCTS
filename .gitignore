@@ -1,7 +1,24 @@
+# OS 시스템 파일
+.DS_Store
+
+# AI 내부 상태/임시 파일 (매우 빈번하게 변경됨)
+*.resolved
+*.resolved.*
+*.metadata.json
+
+# 임시 미디어 저장소
+tempmediaStorage/
+
+# AI 생성 미디어 이미지
+media__*.png
+media__*.jpg
+
+# Python 가상환경 및 캐시 (절대 커밋 금지 - 용량 수백MB)
+venv/
+.venv/
+env/
 __pycache__/
 *.pyc
-.idea/
-.vscode/
+
+# 로그 파일 (선택적)
 *.log
-tmp/
-.DS_Store
