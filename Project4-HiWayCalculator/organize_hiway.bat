@@ -1,7 +1,7 @@
 @echo off
 echo Organizing HiWayCalculator...
 
-set "SOURCE=C:\Users\Admin\Desktop\AG-BEGINNING\HiWayCalculator"
+set "SOURCE=C:\Users\Admin\Desktop\AG-PROEJCTS\Project4-HiWayCalculator\HiWayCalculator"
 set "DEST=C:\Users\Admin\Desktop\AG-REPOSITORY\SIDE002 - HiWayCalculator"
 
 if not exist "%DEST%" mkdir "%DEST%"

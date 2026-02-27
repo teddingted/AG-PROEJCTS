@@ -404,6 +404,49 @@
             color: #555;
         }
 
+        /* Usage Guide */
+        .usage-guide {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--brand-green);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-top: 2rem;
+            text-align: left;
+            box-shadow: 0 0 15px rgba(2, 228, 0, 0.1);
+            transition: opacity 0.3s;
+        }
+
+        .usage-guide h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .usage-guide ol {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .usage-guide li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            color: #e2e8f0;
+        }
+
+        .usage-guide li::before {
+            content: counter(usage-counter) ". ";
+            counter-increment: usage-counter;
+            margin-right: 0.5rem;
+        }
+
+        .usage-guide ol {
+            counter-reset: usage-counter;
+        }
+
         /* Table */
         table {
             width: 100%;
@@ -456,6 +499,16 @@
                 <button id="calcBtn" class="primary-btn">Calculate</button>
                 <button id="clearBtn" class="secondary-btn">Clear</button>
             </div>
+        </section>
+
+        <!-- Usage Guide Section -->
+        <section class="usage-guide" id="usageGuide">
+            <h2>사용 방법</h2>
+            <ol>
+                <li>Hi-HR 사이트 접속</li>
+                <li>보상관리 / 근태관리 / 선택적) 월근무계획 수립 선택</li>
+                <li>입력창에 근무 시간 테이블 복사 (Ctrl-C) & 붙여넣기 (Ctrl-V)</li>
+            </ol>
         </section>
 
         <section class="dashboard hidden" id="dashboard">
@@ -526,6 +579,7 @@
             const clearBtn = document.getElementById('clearBtn');
             const dashboard = document.getElementById('dashboard');
             const details = document.getElementById('details');
+            const usageGuide = document.getElementById('usageGuide');
             const resultTableBody = document.querySelector('#resultTable tbody');
 
             // Stats Elements
@@ -541,10 +595,18 @@
             const cutoffDateInput = document.getElementById('cutoffDate');
             const targetHoursInput = document.getElementById('targetHours');
 
-            // Set default cutoff date to Yesterday (D-1)
-            const today = new Date();
-            today.setDate(today.getDate() - 1);
-            const yesterdayStr = today.toISOString().split('T')[0];
+            // Set default cutoff date to Yesterday (D-1) in KST
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const kstTime = new Date(utc + (9 * 3600000)); // Add 9 hours for KST
+            kstTime.setDate(kstTime.getDate() - 1);
+
+            // Format to YYYY-MM-DD
+            const year = kstTime.getFullYear();
+            const month = String(kstTime.getMonth() + 1).padStart(2, '0');
+            const day = String(kstTime.getDate()).padStart(2, '0');
+            const yesterdayStr = `${year}-${month}-${day}`;
+
             cutoffDateInput.value = yesterdayStr;
 
             calcBtn.addEventListener('click', () => {
@@ -560,6 +622,8 @@
                 dataInput.value = '';
                 dashboard.classList.add('hidden');
                 details.classList.add('hidden');
+                document.getElementById('calendarSection').classList.add('hidden');
+                usageGuide.classList.remove('hidden');
             });
 
             cutoffDateInput.addEventListener('change', () => {
@@ -733,6 +797,7 @@
             }
 
             function updateUI(data) {
+                usageGuide.classList.add('hidden');
                 dashboard.classList.remove('hidden');
                 details.classList.remove('hidden');
 
